@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-cms" insertBefore="administration" caption="mainMsg://menu_config.application-cms">
+        <item screen="cms_CardProfile.browse" caption="mainMsg://menu_config.cms_CardProfile.browse"/>
+    </menu>
+</menu-config>
