@@ -22,7 +22,7 @@
         <filter id="filter"
                 applyTo="cardProfilesTable"
                 dataLoader="cardProfilesDl">
-            <properties include=".*"/>
+            <properties include="bin"/>
         </filter>
         <groupTable id="cardProfilesTable"
                     width="100%"
@@ -33,12 +33,9 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
-                <column id="instNo"/>
-                <column id="binDescr"/>
                 <column id="bin"/>
-                <column id="binLen"/>
-                <column id="cardLen"/>
-                <column id="panLen"/>
+                <column id="binDescr"/>
+                <column id="crdFmt"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
