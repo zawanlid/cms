@@ -1,4 +1,4 @@
-create table CMSCRDPROFILE (
+create table CMSCRDEMVOLDKEY (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -8,12 +8,13 @@ create table CMSCRDPROFILE (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    INSTNO integer,
-    BIN_DESCR varchar(45),
     BIN varchar(10),
-    BINLEN integer,
-    CRDLEN integer,
-    PANLEN integer,
+    BIN_APPID varchar(12),
+    BIN_KEYNM varchar(30),
+    BIN_KEYVAL varchar(49),
+    BIN_KCV varchar(8),
+    BIN_KEYSCH varchar(1),
+    BIN_SAVEDT date,
     --
     primary key (ID)
 );

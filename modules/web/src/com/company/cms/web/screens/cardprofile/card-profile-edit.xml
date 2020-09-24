@@ -10,23 +10,23 @@
             <loader/>
         </instance>
     </data>
-    <dialogMode height="600"
-                width="800"/>
+    <!--<dialogMode height="600"
+                width="800"/>-->
     <layout expand="scrollBox" spacing="true">
-        <scrollBox id="scrollBox" spacing="true" height="600px">
+        <scrollBox id="scrollBox" spacing="true" >
             <form id="form" dataContainer="cardProfileDc" >
                 <column width="350px">
                     <textField id="binField" property="bin" colspan="2" width="90px"/>
-                    <textField id="binDescrField" property="binDescr" colspan="2" width="150px"/>
-                    <textField id="crdFmtField" property="crdFmt" colspan="2" width="150px"/>
+                    <textField id="binDescrField" property="binDescr" colspan="2" width="300px"/>
+                    <textField id="crdFmtField" property="crdFmt" colspan="2" width="300px"/>
                     <textField id="binLenField" property="binLen" width="90px"/>
-                    <textField id="panLenField" property="panLen" colspan="2" width="150px"/>
+                    <textField id="panLenField" property="panLen" colspan="2" width="90px"/>
                     <textField id="pinLenField" property="pinLen" width="90px"/>
                     <textField id="encMethodField" property="encMethod"  width="90px"/>
                     <textField id="pinOffsetField" property="pinOffset" width="90px"/>
                     <textField id="padCharField" property="padChar" width="90px"/>
                     <textField id="mailerTypeField" property="mailerType" width="90px"/>
-                    <textField id="decTblField" property="decTbl"/>
+                    <textField id="decTblField" property="decTbl" width="300px"/>
                 </column>
                 <column width="350px">
                     <textField id="cardLenField" property="cardLen" width="90px"/>
@@ -36,10 +36,11 @@
                     <textField id="serVcdField" property="serVcd" width="90px"/>
                 </column>
             </form>
+            <hbox id="editActions" spacing="true">
+                <button action="windowCommitAndClose"/>
+                <button action="windowClose"/>
+            </hbox>
         </scrollBox>
-        <hbox id="editActions" spacing="true">
-            <button action="windowCommitAndClose"/>
-            <button action="windowClose"/>
-        </hbox>
+
     </layout>
 </window>

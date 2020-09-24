@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://cardProfileDetEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.cardprofiledet">
+    <data>
+        <instance id="cardProfileDetDc"
+                  class="com.company.cms.entity.CardProfileDet">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="cardProfileDetDc">
+                <column width="300px">
+                    <textField id="binField" property="bin" colspan="4" width="90px"/>
+                    <textField id="renewPeriodField" property="renewPeriod" caption="msg://renewPeriod.caption" colspan="4" width="90px"/>
+                    <label value="msg://activation.option" colspan="4" width="100%"/>
+                    <label value=""/>
+                    <label value="msg://cycle.period"/>
+                    <label value="msg://card.use"/>
+                    <label value="msg://pin.tries"/>
+                    <label value="msg://free.transaction"/>
+                    <label value="msg://deposit"/>
+                    <label value="msg://withdrawal.limit"/>
+                    <label value="msg://fast.cash.limit"/>
+                    <label value="msg://withdrawal.limit.(network)"/>
+                    <label value="msg://mobile.transfer.limit"/>
+                    <label value="msg://transfer.limit"/>
+                    <label value="msg://transfer.debit.limit"/>
+                    <label value="msg://third.parties.transfer.limit"/>
+                    <label value="msg://interbank.fund.transfer"/>
+                    <label value="msg://interbank.fund.transfer(debit)"/>
+                    <label value="msg://interbank.fund.transfer(credit)"/>
+                    <label value="msg://enforce.global.limit"/>
+                </column>
+                <column width="10px">
+                    <label value=""/>
+                    <label value=":"/>
+                    <label value=":"/>
+                    <label value=":"/>
+                    <label value=":"/>
+                    <label value=":"/>
+                    <label value=":"/>
+                    <label value=":"/>
+                    <label value=":"/>
+                    <label value=":"/>
+                    <label value=":"/>
+                    <label value=":"/>
+                    <label value=":"/>
+                    <label value=":"/>
+                    <label value=":"/>
+                </column>
+                <column width="100px">
+                    <label value="msg://default" stylename="align-right" width="100%"/>
+                    <textField id="cycPrdDefField" property="cycPrdDef" caption=""/>
+                    <textField id="crdDefLmtField" property="crdDefLmt" caption=""/>
+                    <textField id="pintriesDefLmtField" property="pintriesDefLmt" caption=""/>
+                    <textField id="freetxnDefLmtField" property="freetxnDefLmt" caption=""/>
+                    <textField id="depDetLmtField" property="depDetLmt" caption=""/>
+                    <textField id="wdlDefLmtField" property="wdlDefLmt" caption=""/>
+                    <textField id="fwdlDefLmtField" property="fwdlDefLmt" caption=""/>
+                    <textField id="netWdlDefLmtField" property="netWdlDefLmt" caption=""/>
+                    <textField id="mblTrfLmtField" property="mblTrfLmt" caption=""/>
+                    <textField id="trfDefLmtField" property="trfDefLmt" caption=""/>
+                    <textField id="trfcrDefLmtField" property="trfcrDefLmt" caption=""/>
+                    <textField id="thrdtrfDefLmtField" property="thrdtrfDefLmt" caption=""/>
+                    <textField id="ibftDefLmtField" property="ibftDefLmt" caption=""/>
+                    <textField id="ibftdrDefLmtField" property="ibftdrDefLmt" caption=""/>
+                    <textField id="ibftcrDefLmtField" property="ibftcrDefLmt" caption=""/>
+                    <textField id="enfGlbLmtField" property="enfGlbLmt" caption=""/>
+
+                </column>
+                <column width="100px">
+                    <label value="msg://maximum" stylename="align-right" width="100%"/>
+                    <textField id="cycPrdMaxField" property="cycPrdMax" caption=""/>
+                    <textField id="crdMaxLmtField" property="crdMaxLmt" caption=""/>
+                    <textField id="pintriesMaxLmtField" property="pintriesMaxLmt" caption=""/>
+                    <textField id="freetxnMaxLmtField" property="freetxnMaxLmt" caption=""/>
+                    <textField id="depMaxLmtField" property="depMaxLmt" caption=""/>
+                    <textField id="wdlMaxLmtField" property="wdlMaxLmt" caption=""/>
+                    <textField id="fwdlMaxLmtField" property="fwdlMaxLmt" caption=""/>
+                    <textField id="netWdlMaxLmtField" property="netWdlMaxLmt" caption=""/>
+                    <textField id="mblTrfMaxLmtField" property="mblTrfMaxLmt" caption=""/>
+                    <textField id="trfMaxLmtField" property="trfMaxLmt" caption=""/>
+                    <textField id="trfcrMaxLmtField" property="trfcrMaxLmt" caption=""/>
+                    <textField id="thrdtrfMaxLmtField" property="thrdtrfMaxLmt" caption=""/>
+                    <textField id="ibftMaxLmtField" property="ibftMaxLmt" caption=""/>
+                    <textField id="ibftdrMaxLmtField" property="ibftdrMaxLmt" caption=""/>
+                    <textField id="ibftcrMaxLmtField" property="ibftcrMaxLmt" caption=""/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

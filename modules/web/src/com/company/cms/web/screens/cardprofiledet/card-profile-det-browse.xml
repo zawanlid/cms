@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
-        caption="msg://cardProfileBrowse.caption"
-        focusComponent="cardProfilesTable"
-        messagesPack="com.company.cms.web.screens.cardprofile">
+        caption="msg://cardProfileDetBrowse.caption"
+        focusComponent="cardProfileDetsTable"
+        messagesPack="com.company.cms.web.screens.cardprofiledet">
     <data readOnly="true">
-        <collection id="cardProfilesDc"
-                    class="com.company.cms.entity.CardProfile">
+        <collection id="cardProfileDetsDc"
+                    class="com.company.cms.entity.CardProfileDet">
             <view extends="_local"/>
-            <loader id="cardProfilesDl">
+            <loader id="cardProfileDetsDl">
                 <query>
-                    <![CDATA[select e from cms_CardProfile e]]>
+                    <![CDATA[select e from cms_CardProfileDet e]]>
                 </query>
             </loader>
         </collection>
     </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="cardProfilesTable"
+    <layout expand="cardProfileDetsTable"
             spacing="true">
         <filter id="filter"
-                applyTo="cardProfilesTable"
-                dataLoader="cardProfilesDl">
+                applyTo="cardProfileDetsTable"
+                dataLoader="cardProfileDetsDl">
             <properties include=".*"/>
         </filter>
-        <groupTable id="cardProfilesTable"
+        <groupTable id="cardProfileDetsTable"
                     width="100%"
-                    dataContainer="cardProfilesDc">
+                    dataContainer="cardProfileDetsDc">
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
-                <column id="bin"/>
-                <column id="binDescr"/>
-                <column id="crdFmt"/>
+                <column id="bin" width="200px"/>
+                <column id="renewPeriod" width="400px"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn" action="cardProfilesTable.create"/>
-                <button id="editBtn" action="cardProfilesTable.edit"/>
-                <button id="removeBtn" action="cardProfilesTable.remove"/>
+                <button id="createBtn" action="cardProfileDetsTable.create"/>
+                <button id="editBtn" action="cardProfileDetsTable.edit"/>
+                <button id="removeBtn" action="cardProfileDetsTable.remove"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

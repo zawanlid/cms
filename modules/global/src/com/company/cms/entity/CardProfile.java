@@ -29,7 +29,7 @@ public class CardProfile extends StandardEntity {
     @Column(name = "PANLEN")
     private Integer panLen;
 
-    @Column(name = "CRD_FMT", length = 16)
+    @Column(name = "CRD_FMT", length = 20)
     private String crdFmt;
 
     @Column(name = "PVKI", length = 2)
@@ -59,7 +59,7 @@ public class CardProfile extends StandardEntity {
     @Column(name = "SER_VCD", length = 5)
     private String serVcd;
 
-    @Column(name = "MAILER_TYPE", length = 1)
+    @Column(name = "MAILER_TYPE", length = 6)
     private String mailerType;
 
     @Column(name = "DEC_TBL", length = 16)
