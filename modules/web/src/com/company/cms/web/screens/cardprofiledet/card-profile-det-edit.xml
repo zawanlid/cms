@@ -55,18 +55,18 @@
                     <label value=":"/>
                 </column>
                 <column width="100px">
-                    <label value="msg://default" stylename="align-right" width="100%"/>
+                    <label value="msg://default" stylename="align-center" width="100%"/>
                     <textField id="cycPrdDefField" property="cycPrdDef" caption=""/>
                     <textField id="crdDefLmtField" property="crdDefLmt" caption=""/>
                     <textField id="pintriesDefLmtField" property="pintriesDefLmt" caption=""/>
                     <textField id="freetxnDefLmtField" property="freetxnDefLmt" caption=""/>
-                    <textField id="depDetLmtField" property="depDetLmt" caption=""/>
+                    <textField id="depDetLmtField" property="depDefLmt" caption=""/>
                     <textField id="wdlDefLmtField" property="wdlDefLmt" caption=""/>
                     <textField id="fwdlDefLmtField" property="fwdlDefLmt" caption=""/>
                     <textField id="netWdlDefLmtField" property="netWdlDefLmt" caption=""/>
                     <textField id="mblTrfLmtField" property="mblTrfLmt" caption=""/>
                     <textField id="trfDefLmtField" property="trfDefLmt" caption=""/>
-                    <textField id="trfcrDefLmtField" property="trfcrDefLmt" caption=""/>
+                    <textField id="trfcrDefLmtField" property="trfdrDefLmt" caption=""/>
                     <textField id="thrdtrfDefLmtField" property="thrdtrfDefLmt" caption=""/>
                     <textField id="ibftDefLmtField" property="ibftDefLmt" caption=""/>
                     <textField id="ibftdrDefLmtField" property="ibftdrDefLmt" caption=""/>
@@ -75,7 +75,7 @@
 
                 </column>
                 <column width="100px">
-                    <label value="msg://maximum" stylename="align-right" width="100%"/>
+                    <label value="msg://maximum" stylename="align-center" width="100%"/>
                     <textField id="cycPrdMaxField" property="cycPrdMax" caption=""/>
                     <textField id="crdMaxLmtField" property="crdMaxLmt" caption=""/>
                     <textField id="pintriesMaxLmtField" property="pintriesMaxLmt" caption=""/>
@@ -86,7 +86,7 @@
                     <textField id="netWdlMaxLmtField" property="netWdlMaxLmt" caption=""/>
                     <textField id="mblTrfMaxLmtField" property="mblTrfMaxLmt" caption=""/>
                     <textField id="trfMaxLmtField" property="trfMaxLmt" caption=""/>
-                    <textField id="trfcrMaxLmtField" property="trfcrMaxLmt" caption=""/>
+                    <textField id="trfcrMaxLmtField" property="trfdrMaxLmt" caption=""/>
                     <textField id="thrdtrfMaxLmtField" property="thrdtrfMaxLmt" caption=""/>
                     <textField id="ibftMaxLmtField" property="ibftMaxLmt" caption=""/>
                     <textField id="ibftdrMaxLmtField" property="ibftdrMaxLmt" caption=""/>

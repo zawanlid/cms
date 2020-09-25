@@ -1,1 +1,0 @@
-drop table if exists CMS_CARD_EMV_KEY__U78154 cascade ;

@@ -59,11 +59,11 @@ public class CardProfile extends StandardEntity {
     @Column(name = "SER_VCD", length = 5)
     private String serVcd;
 
-    @Column(name = "MAILER_TYPE", length = 6)
-    private String mailerType;
-
     @Column(name = "DEC_TBL", length = 16)
     private String decTbl;
+
+    @Column(name = "MAILER_TYPE")
+    private Integer mailerType;
 
     @Column(name = "PVK1", length = 49)
     private String pvk1;
@@ -94,6 +94,14 @@ public class CardProfile extends StandardEntity {
 
     @Column(name = "CRD_TYPE", length = 15)
     private String crdType;
+
+    public MailerType getMailerType() {
+        return mailerType == null ? null : MailerType.fromId(mailerType);
+    }
+
+    public void setMailerType(MailerType mailerType) {
+        this.mailerType = mailerType == null ? null : mailerType.getId();
+    }
 
     public String getCrdType() {
         return crdType;
@@ -181,14 +189,6 @@ public class CardProfile extends StandardEntity {
 
     public void setDecTbl(String decTbl) {
         this.decTbl = decTbl;
-    }
-
-    public String getMailerType() {
-        return mailerType;
-    }
-
-    public void setMailerType(String mailerType) {
-        this.mailerType = mailerType;
     }
 
     public String getSerVcd() {
@@ -318,4 +318,6 @@ public class CardProfile extends StandardEntity {
     public void setInstNo(Integer instNo) {
         this.instNo = instNo;
     }
+
+
 }

@@ -56,11 +56,11 @@ public class CardProfileDet extends StandardEntity {
     @Column(name = "TRF_MAX_LMT")
     private Integer trfMaxLmt;
 
-    @Column(name = "TRFCR_DEF_LMT")
-    private Integer trfcrDefLmt;
+    @Column(name = "TRFDR_DEF_LMT")
+    private Integer trfdrDefLmt;
 
-    @Column(name = "TRFCR_MAX_LMT")
-    private Integer trfcrMaxLmt;
+    @Column(name = "TRFDR_MAX_LMT")
+    private Integer trfdrMaxLmt;
 
     @Column(name = "THRDTRF_DEF_LMT")
     private Integer thrdtrfDefLmt;
@@ -98,8 +98,8 @@ public class CardProfileDet extends StandardEntity {
     @Column(name = "FREETXN_MAX_LMT")
     private Integer freetxnMaxLmt;
 
-    @Column(name = "DEP_DET_LMT")
-    private Integer depDetLmt;
+    @Column(name = "DEP_DEF_LMT")
+    private Integer depDefLmt;
 
     @Column(name = "DEP_MAX_LMT")
     private Integer depMaxLmt;
@@ -109,6 +109,7 @@ public class CardProfileDet extends StandardEntity {
 
     @Column(name = "CRD_MAX_LMT")
     private Integer crdMaxLmt;
+
 
     public Integer getCrdMaxLmt() {
         return crdMaxLmt;
@@ -142,12 +143,12 @@ public class CardProfileDet extends StandardEntity {
         this.depMaxLmt = depMaxLmt;
     }
 
-    public Integer getDepDetLmt() {
-        return depDetLmt;
+    public Integer getDepDefLmt() {
+        return depDefLmt;
     }
 
-    public void setDepDetLmt(Integer depDetLmt) {
-        this.depDetLmt = depDetLmt;
+    public void setDepDefLmt(Integer depDefLmt) {
+        this.depDefLmt = depDefLmt;
     }
 
     public Integer getFreetxnMaxLmt() {
@@ -230,20 +231,20 @@ public class CardProfileDet extends StandardEntity {
         this.thrdtrfDefLmt = thrdtrfDefLmt;
     }
 
-    public Integer getTrfcrMaxLmt() {
-        return trfcrMaxLmt;
+    public Integer getTrfdrMaxLmt() {
+        return trfdrMaxLmt;
     }
 
-    public void setTrfcrMaxLmt(Integer trfcrMaxLmt) {
-        this.trfcrMaxLmt = trfcrMaxLmt;
+    public void setTrfdrMaxLmt(Integer trfdrMaxLmt) {
+        this.trfdrMaxLmt = trfdrMaxLmt;
     }
 
-    public Integer getTrfcrDefLmt() {
-        return trfcrDefLmt;
+    public Integer getTrfdrDefLmt() {
+        return trfdrDefLmt;
     }
 
-    public void setTrfcrDefLmt(Integer trfcrDefLmt) {
-        this.trfcrDefLmt = trfcrDefLmt;
+    public void setTrfdrDefLmt(Integer trfdrDefLmt) {
+        this.trfdrDefLmt = trfdrDefLmt;
     }
 
     public Integer getTrfMaxLmt() {
