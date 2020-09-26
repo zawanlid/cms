@@ -1,20 +1,25 @@
 package com.company.cms.entity;
 
+import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Table(name = "CMSCRDPROFILEDET")
 @Entity(name = "cms_CardProfileDet")
+@NamePattern("%s|renewPeriod")
 public class CardProfileDet extends StandardEntity {
     private static final long serialVersionUID = -147695300534237862L;
 
-    @Column(name = "BIN", length = 10)
+    @Column(name = "BIN", nullable = false, unique = true, length = 10)
+    @NotNull
     private String bin;
 
-    @Column(name = "RENEW_PERIOD")
+    @Column(name = "RENEW_PERIOD", nullable = false)
+    @NotNull
     private Integer renewPeriod;
 
     @Column(name = "ENF_GLB_LMT", length = 1)
@@ -109,6 +114,14 @@ public class CardProfileDet extends StandardEntity {
 
     @Column(name = "CRD_MAX_LMT")
     private Integer crdMaxLmt;
+
+    public String getBin() {
+        return bin;
+    }
+
+    public void setBin(String bin) {
+        this.bin = bin;
+    }
 
 
     public Integer getCrdMaxLmt() {
@@ -359,14 +372,6 @@ public class CardProfileDet extends StandardEntity {
         this.renewPeriod = renewPeriod;
     }
 
-    public String getBin() {
-        return bin;
-    }
-
-    public void setBin(String bin) {
-        this.bin = bin;
-    }
-
     public Integer getIbftcrMaxLmt() {
         return ibftcrMaxLmt;
     }
@@ -374,4 +379,6 @@ public class CardProfileDet extends StandardEntity {
     public void setIbftcrMaxLmt(Integer ibftcrMaxLmt) {
         this.ibftcrMaxLmt = ibftcrMaxLmt;
     }
+
+
 }

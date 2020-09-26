@@ -1,19 +1,25 @@
 package com.company.cms.entity;
 
+import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
+
 
 @Table(name = "CMSCRDEMVKEY")
 @Entity(name = "cms_CardEmvKey")
+@NamePattern("%s|binAppid")
 public class CardEmvKey extends StandardEntity {
     private static final long serialVersionUID = 951044704825777276L;
 
-    @Column(name = "BIN", length = 10)
+    @Column(name = "BIN", nullable = false, unique = true)
+    @NotNull
     private String bin;
 
-    @Column(name = "BIN_APPID", length = 12)
+    @Column(name = "BIN_APPID", nullable = false, length = 12)
+    @NotNull
     private String binAppid;
 
     @Column(name = "BIN_KEYNM", length = 30)

@@ -5,15 +5,22 @@
         messagesPack="com.company.cms.web.screens.cardprofile">
     <data>
         <instance id="cardProfileDc"
-                  class="com.company.cms.entity.CardProfile">
-            <view extends="_local"/>
+                  class="com.company.cms.entity.CardProfile"
+                  view="card-profile-with-det-edit-view"
+                  >
             <loader/>
+            <instance id="cardProfileDetDc" property="cardProfileDet"/>
         </instance>
     </data>
     <!--<dialogMode height="600"
                 width="800"/>-->
     <layout expand="scrollBox" spacing="true">
+        <label value=""/>
         <scrollBox id="scrollBox" spacing="true" >
+            <hbox spacing="true" height="430px">
+                <groupBox id="cardProfileGroupBox"
+                          caption="msg://cardprofile"
+                          height="100%">
             <form id="form" dataContainer="cardProfileDc" >
                 <column width="350px">
                     <textField id="binField" property="bin" colspan="2" width="90px"/>
@@ -36,6 +43,26 @@
                     <textField id="serVcdField" property="serVcd" width="90px"/>
                 </column>
             </form>
+                </groupBox>
+                <groupBox id="detailRecordGroupBox"
+                          caption="msg://cardprofile.detail"
+                          height="100px">
+                    <form id="form_detail" dataContainer="cardProfileDc" >
+                    <pickerField id="cardProfileDetField" property="cardProfileDet" colspan="1" width="300px">
+                        <actions>
+                            <action id="open" type="picker_open_composition"/>
+                            <action id="clear" type="picker_clear"/>
+                        </actions>
+                    </pickerField>
+                    <pickerField id="cardEmvKeyField" property="cardEmvKey" colspan="1" width="300px">
+                        <actions>
+                            <action id="open" type="picker_open_composition"/>
+                            <action id="clear" type="picker_clear"/>
+                        </actions>
+                    </pickerField>
+                    </form>
+                </groupBox>
+            </hbox>
             <hbox id="editActions" spacing="true">
                 <button action="windowCommitAndClose"/>
                 <button action="windowClose"/>

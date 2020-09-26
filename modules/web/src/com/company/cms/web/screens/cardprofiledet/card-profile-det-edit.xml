@@ -16,7 +16,10 @@
         <scrollBox id="scrollBox" spacing="true">
             <form id="form" dataContainer="cardProfileDetDc">
                 <column width="300px">
+<!--
                     <textField id="binField" property="bin" colspan="4" width="90px"/>
+-->
+
                     <textField id="renewPeriodField" property="renewPeriod" caption="msg://renewPeriod.caption" colspan="4" width="90px"/>
                     <label value="msg://activation.option" colspan="4" width="100%"/>
                     <label value=""/>

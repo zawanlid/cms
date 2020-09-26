@@ -3,6 +3,7 @@ package com.company.cms.entity;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Table(name = "CMSCRDEMVOLDKEY")
@@ -10,7 +11,8 @@ import java.util.Date;
 public class CardEmvOldKey extends StandardEntity {
     private static final long serialVersionUID = 951044704825777276L;
 
-    @Column(name = "BIN", length = 10)
+    @Column(name = "BIN", nullable = false, unique = true, length = 10)
+    @NotNull
     private String bin;
 
     @Column(name = "BIN_APPID", length = 12)

@@ -1,27 +1,30 @@
 package com.company.cms.entity;
 
+import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Table(name = "CMSCRDPROFILE")
 @Entity(name = "cms_CardProfile")
 public class CardProfile extends StandardEntity {
     private static final long serialVersionUID = -148252474271127635L;
 
-    @Column(name = "INSTNO")
-    private Integer instNo;
+    @Column(name = "BIN", nullable = false, unique = true, length = 10)
+    @NotNull
+    private String bin;
 
     @Column(name = "BIN_DESCR", length = 45)
     private String binDescr;
 
-    @Column(name = "BIN", length = 10)
-    private String bin;
-
     @Column(name = "BINLEN")
     private Integer binLen;
+
+    @Column(name = "INSTNO")
+    private Integer instNo;
 
     @Column(name = "CRDLEN")
     private Integer cardLen;
@@ -94,6 +97,29 @@ public class CardProfile extends StandardEntity {
 
     @Column(name = "CRD_TYPE", length = 15)
     private String crdType;
+
+    @NotNull
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "CRD_PRF_DET_ID")
+    private CardProfileDet cardProfileDet;
+
+    @NotNull
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "CRD_EMV_KEY_ID")
+    private CardEmvKey cardEmvKey;
+
+
+    public String getBin() {
+        return bin;
+    }
+
+    public void setBin(String bin) {
+        this.bin = bin;
+    }
 
     public MailerType getMailerType() {
         return mailerType == null ? null : MailerType.fromId(mailerType);
@@ -295,13 +321,7 @@ public class CardProfile extends StandardEntity {
         this.binLen = binLen;
     }
 
-    public String getBin() {
-        return bin;
-    }
 
-    public void setBin(String bin) {
-        this.bin = bin;
-    }
 
     public String getBinDescr() {
         return binDescr;
@@ -320,4 +340,20 @@ public class CardProfile extends StandardEntity {
     }
 
 
+    public CardProfileDet getCardProfileDet() {
+        return cardProfileDet;
+    }
+
+    public void setCardProfileDet(CardProfileDet cardProfileDet) {
+        this.cardProfileDet = cardProfileDet;
+    }
+
+
+    public CardEmvKey getCardEmvKey() {
+        return cardEmvKey;
+    }
+
+    public void setCardEmvKey(CardEmvKey cardEmvKey) {
+        this.cardEmvKey = cardEmvKey;
+    }
 }

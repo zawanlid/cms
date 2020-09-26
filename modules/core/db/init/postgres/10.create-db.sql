@@ -9,10 +9,10 @@ create table CMSCRDPROFILE (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    INSTNO integer,
+    BIN varchar(10) not null,
     BIN_DESCR varchar(45),
-    BIN varchar(10),
     BINLEN integer,
+    INSTNO integer,
     CRDLEN integer,
     PANLEN integer,
     CRD_FMT varchar(20),
@@ -37,10 +37,34 @@ create table CMSCRDPROFILE (
     CVK2_KCV varchar(8),
     PIN_ALG integer,
     CRD_TYPE varchar(15),
+    CRD_PRF_DET_ID uuid not null,
+    CRD_EMV_KEY_ID uuid not null,
     --
     primary key (ID)
 )^
 -- end CMSCRDPROFILE
+-- begin CMSCRDEMVOLDKEY
+create table CMSCRDEMVOLDKEY (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    BIN varchar(10) not null,
+    BIN_APPID varchar(12),
+    BIN_KEYNM varchar(30),
+    BIN_KEYVAL varchar(49),
+    BIN_KCV varchar(8),
+    BIN_KEYSCH varchar(1),
+    BIN_SAVEDT date,
+    --
+    primary key (ID)
+)^
+-- end CMSCRDEMVOLDKEY
 -- begin CMSCRDPROFILEDET
 create table CMSCRDPROFILEDET (
     ID uuid,
@@ -52,8 +76,8 @@ create table CMSCRDPROFILEDET (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    BIN varchar(10),
-    RENEW_PERIOD integer,
+    BIN varchar(10) not null,
+    RENEW_PERIOD integer not null,
     ENF_GLB_LMT varchar(1),
     CYC_PRD_DEF integer,
     CYC_PRD_MAX integer,
@@ -89,7 +113,6 @@ create table CMSCRDPROFILEDET (
     primary key (ID)
 )^
 -- end CMSCRDPROFILEDET
-
 -- begin CMSCRDEMVKEY
 create table CMSCRDEMVKEY (
     ID uuid,
@@ -101,8 +124,8 @@ create table CMSCRDEMVKEY (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    BIN varchar(10),
-    BIN_APPID varchar(12),
+    BIN varchar(255) not null,
+    BIN_APPID varchar(12) not null,
     BIN_KEYNM varchar(30),
     BIN_KEYVAL varchar(49),
     BIN_KCV varchar(8),
@@ -112,25 +135,3 @@ create table CMSCRDEMVKEY (
     primary key (ID)
 )^
 -- end CMSCRDEMVKEY
--- begin CMSCRDEMVOLDKEY
-create table CMSCRDEMVOLDKEY (
-    ID uuid,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    BIN varchar(10),
-    BIN_APPID varchar(12),
-    BIN_KEYNM varchar(30),
-    BIN_KEYVAL varchar(49),
-    BIN_KCV varchar(8),
-    BIN_KEYSCH varchar(1),
-    BIN_SAVEDT date,
-    --
-    primary key (ID)
-)^
--- end CMSCRDEMVOLDKEY
