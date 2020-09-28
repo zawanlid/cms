@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://cardEmbossReqBrowse.caption"
+        focusComponent="cardEmbossReqTable"
+        messagesPack="com.company.cms.web.screens.cardembossreq">
+    <data readOnly="true">
+        <collection id="cardEmbossReqDc"
+                    class="com.company.cms.entity.CardGenReq">
+            <view extends="_local"/>
+            <loader id="cardEmbossReqDl">
+                <query>
+                    <![CDATA[select e from cms_CardGenReq e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="cardEmbossReqTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="cardEmbossReqTable"
+                dataLoader="cardEmbossReqDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="cardEmbossReqTable"
+                    width="100%"
+                    dataContainer="cardEmbossReqDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="brnCd"/>
+                <column id="batchNum"/>
+                <column id="batchSts"/>
+                <column id="bthreqDt"/>
+                <column id="crdembDt"/>
+                <column id="pinmlrDt"/>
+                <column id="fileuplDt"/>
+                <column id="batchCnt"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="cardEmbossReqTable.create"/>
+                <button id="editBtn" action="cardEmbossReqTable.edit"/>
+                <button id="removeBtn" action="cardEmbossReqTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

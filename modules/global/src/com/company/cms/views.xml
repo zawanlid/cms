@@ -4,4 +4,10 @@
         <property name="cardProfileDet" view="_local"/>
         <property name="cardEmvKey" view="_local"/>
     </view>
+    <view class="com.company.cms.entity.CardGenReq" name="card-emboss-with-det-edit-view" extends="_local">
+        <property name="cardGenReqDets" view="_local"/>
+    </view>
+    <view class="com.company.cms.entity.CardGenReq" name="pin-mailer-with-det-edit-view" extends="_local">
+        <property name="cardGenReqDets" view="_local"/>
+    </view>
 </views>

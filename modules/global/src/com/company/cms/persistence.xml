@@ -6,5 +6,7 @@
         <class>com.company.cms.entity.CardProfileDet</class>
         <class>com.company.cms.entity.CardEmvKey</class>
         <class>com.company.cms.entity.CardEmvOldKey</class>
+        <class>com.company.cms.entity.CardGenReq</class>
+        <class>com.company.cms.entity.CardGenReqDet</class>
     </persistence-unit>
 </persistence>

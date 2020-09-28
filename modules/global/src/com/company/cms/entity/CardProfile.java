@@ -112,6 +112,23 @@ public class CardProfile extends StandardEntity {
     @JoinColumn(name = "CRD_EMV_KEY_ID")
     private CardEmvKey cardEmvKey;
 
+    /**
+     * This event listener is to set BIN value from card profile to detail entities.
+     */
+    @PrePersist
+    public void prePersist() {
+        this.getCardEmvKey().setBin(this.getBin());
+        this.getCardProfileDet().setBin(this.getBin());
+    }
+
+    /**
+     * This event listener is to set BIN value from card profile to detail entities.
+     */
+    @PreUpdate
+    public void preUpdate() {
+        this.getCardEmvKey().setBin(this.getBin());
+        this.getCardProfileDet().setBin(this.getBin());
+    }
 
     public String getBin() {
         return bin;

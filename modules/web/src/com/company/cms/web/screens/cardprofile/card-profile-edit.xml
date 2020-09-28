@@ -48,13 +48,13 @@
                           caption="msg://cardprofile.detail"
                           height="100px">
                     <form id="form_detail" dataContainer="cardProfileDc" >
-                    <pickerField id="cardProfileDetField" property="cardProfileDet" colspan="1" width="300px">
+                    <pickerField id="cardProfileDetField" property="cardProfileDet"  width="300px">
                         <actions>
                             <action id="open" type="picker_open_composition"/>
                             <action id="clear" type="picker_clear"/>
                         </actions>
                     </pickerField>
-                    <pickerField id="cardEmvKeyField" property="cardEmvKey" colspan="1" width="300px">
+                    <pickerField id="cardEmvKeyField" property="cardEmvKey" width="300px">
                         <actions>
                             <action id="open" type="picker_open_composition"/>
                             <action id="clear" type="picker_clear"/>

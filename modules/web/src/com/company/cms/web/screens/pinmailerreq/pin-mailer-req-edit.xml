@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://pinMailerReqEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.pinmailerreq">
+    <data>
+        <instance id="pinMailerReqDc"
+                  class="com.company.cms.entity.CardGenReq"
+                  view="pin-mailer-with-det-edit-view"
+                  >
+            <loader/>
+            <collection id="pinMailerReqDetDc" property="cardGenReqDets"/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <groupBox id="generalBox"
+                      height="100%"
+                      width="100%"
+                      caption="msg://pin.mailer.req"
+                      stylename="light">
+                <form id="form" dataContainer="pinMailerReqDc">
+                    <column width="350px">
+                        <textField id="brnCdField" property="brnCd"/>
+                        <textField id="binField" property="bin"/>
+                        <textField id="renewField" property="renew"/>
+                        <dateField id="bthreqDtField" property="bthreqDt"/>
+                        <dateField id="pinmlrDtField" property="pinmlrDt"/>
+                        <textField id="reqUserid1Field" property="reqUserid1"/>
+                        <textField id="embUserid1Field" property="embUserid1"/>
+                        <textField id="mlrUserid1Field" property="mlrUserid1"/>
+                        <textField id="fulUserid1Field" property="fulUserid1"/>
+                        <textField id="batchStsField" property="batchSts"/>
+                    </column>
+                    <column width="350px">
+                        <textField id="batchNumField" property="batchNum"/>
+                        <textField id="batchCntField" property="batchCnt"/>
+                        <textField id="postGenField" property="postGen"/>
+                        <dateField id="crdembDtField" property="crdembDt"/>
+                        <dateField id="fileuplDtField" property="fileuplDt"/>
+                        <textField id="reqUserid2Field" property="reqUserid2"/>
+                        <textField id="embUserid2Field" property="embUserid2"/>
+                        <textField id="mlrUserid2Field" property="mlrUserid2"/>
+                        <textField id="fulUserid2Field" property="fulUserid2"/>
+                    </column>
+                </form>
+            </groupBox>
+            <groupBox id="detsBox" caption="msg://pin.mailer.req.det" stylename="light">
+                <table id="detsTable" dataContainer="pinMailerReqDetDc" width="100%" height="100%">
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="cardNum"/>
+                        <column id="embossNm"/>
+                        <column id="longNm"/>
+                        <column id="expDt" />
+                    </columns>
+                    <buttonsPanel>
+                        <button action="detsTable.create"/>
+                        <button action="detsTable.edit"/>
+                        <button action="detsTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </groupBox>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

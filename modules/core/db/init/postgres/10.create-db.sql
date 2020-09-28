@@ -135,3 +135,67 @@ create table CMSCRDEMVKEY (
     primary key (ID)
 )^
 -- end CMSCRDEMVKEY
+-- begin CMSCARDGENREQ
+create table CMSCARDGENREQ (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    BRN_CD varchar(10) not null,
+    BATCHNUM varchar(4) not null,
+    BATCHSTS varchar(5) not null,
+    BIN varchar(10) not null,
+    BTHREQ_DT date,
+    CRDEMB_DT date,
+    PINMLR_DT date,
+    FILEUPL_DT date,
+    REQ_USERID1 varchar(10),
+    REQ_USERID2 varchar(10),
+    EMB_USERID1 varchar(10),
+    EMB_USERID2 varchar(10),
+    MLR_USERID1 varchar(10),
+    MLR_USERID2 varchar(10),
+    FUL_USERID1 varchar(10),
+    FUL_USERID2 varchar(10),
+    BATCH_CNT integer,
+    RENEW varchar(1),
+    POSTGEN varchar(1),
+    LAST_UPDATED date,
+    STSUPD_USERID varchar(10),
+    --
+    primary key (ID)
+)^
+-- end CMSCARDGENREQ
+
+-- begin CMSCARDGENREQDET
+create table CMSCARDGENREQDET (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    BRNCD varchar(10) not null,
+    BATCHNUM varchar(4) not null,
+    CARD_GEN_ID uuid not null,
+    BIN varchar(10) not null,
+    BTHREQ_DT date,
+    CARDNUM varchar(16),
+    EMBOSSNM varchar(30),
+    LONGNM varchar(100),
+    LANG varchar(1),
+    STATE varchar(40),
+    COUNTRY varchar(40),
+    EXPDT date,
+    --
+    primary key (ID)
+)^
+-- end CMSCARDGENREQDET

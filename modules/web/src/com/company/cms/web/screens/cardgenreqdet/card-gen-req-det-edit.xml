@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://cardGenReqDetEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.cardgenreqdet">
+    <data>
+        <instance id="cardGenReqDetDc"
+                  class="com.company.cms.entity.CardGenReqDet">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="cardGenReqDetDc">
+                <column width="350px">
+                    <textField id="cardNumField" property="cardNum"/>
+                    <textField id="embossNmField" property="embossNm"/>
+                    <textField id="longNmField" property="longNm"/>
+                    <textField id="langField" property="lang"/>
+                    <textField id="stateField" property="state"/>
+                    <textField id="countryField" property="country"/>
+                    <dateField id="expDtField" property="expDt"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

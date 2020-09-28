@@ -2,5 +2,9 @@
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
     <menu id="application-cms" insertBefore="administration" caption="mainMsg://menu_config.application-cms">
         <item screen="cms_CardProfile.browse" caption="mainMsg://menu_config.cms_CardProfile.browse"/>
+        <menu id="card_pin_gen" caption="mainMsg://menu_card.pin.gen">
+            <item screen="cms_CardEmbossReq.browse" caption="mainMsg://menu_config.cms_CardEmboss.browse"/>
+            <item screen="cms_PinMailerReq.browse" caption="mainMsg://menu_config.cms_PinMailerReq.browse"/>
+        </menu>
     </menu>
 </menu-config>
