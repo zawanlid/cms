@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://fileFmtEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.filefmt">
+    <data>
+        <instance id="fileFmtDc"
+                  class="com.company.cms.entity.FileFmt">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="fileFmtDc">
+            <column width="350px">
+                <textField id="fmtIdField" property="fmtId"/>
+                <textField id="fieldField" property="field"/>
+                <textField id="descrField" property="descr"/>
+                <textField id="posField" property="pos"/>
+                <textField id="lengthField" property="length"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

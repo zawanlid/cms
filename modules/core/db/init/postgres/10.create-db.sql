@@ -199,3 +199,58 @@ create table CMSCARDGENREQDET (
     primary key (ID)
 )^
 -- end CMSCARDGENREQDET
+-- begin CMSBRNMAINT
+create table CMSBRNMAINT (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    INSTNO integer,
+    BRNCD varchar(10),
+    BRN_NM integer,
+    ADDR1 varchar(30),
+    ADDR2 varchar(30),
+    ADDR3 varchar(30),
+    CITY varchar(30),
+    STATE varchar(30),
+    CNTRYCD varchar(2),
+    MAINT_TYPE varchar(1),
+    THRESHOLD integer,
+    TOTAL_CRD integer,
+    ISSUED_CRD integer,
+    CURR_CRD_LVL integer,
+    TOTAL_BATCHNUM integer,
+    LAST_BATCHDT date,
+    --
+    primary key (ID)
+)^
+-- end CMSBRNMAINT
+-- begin CMSFILEFMT
+create table CMSFILEFMT (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    INST_NO integer,
+    FMT_TYPE varchar(10),
+    FMT_ID varchar(10),
+    FIELD varchar(30),
+    DESCR varchar(50),
+    POS integer,
+    LENGTH integer,
+    LASTUPDATED date,
+    LASTUPDATED_BY varchar(10),
+    --
+    primary key (ID)
+)^
+-- end CMSFILEFMT

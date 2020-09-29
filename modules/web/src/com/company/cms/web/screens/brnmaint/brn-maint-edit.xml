@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://brnMaintEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.brnmaint">
+    <data>
+        <instance id="brnMaintDc"
+                  class="com.company.cms.entity.BrnMaint">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="brnMaintDc">
+                <column width="350px">
+                    <textField id="brnCdField" property="brnCd"/>
+                    <textField id="brnNmField" property="brnNm"/>
+                    <textField id="addr1Field" property="addr1"/>
+                    <textField id="addr2Field" property="addr2"/>
+                    <textField id="addr3Field" property="addr3"/>
+                    <textField id="cityField" property="city"/>
+                    <textField id="stateField" property="state"/>
+                    <textField id="cntryCdField" property="cntryCd"/>
+                    <textField id="maintTypeField" property="maintType"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

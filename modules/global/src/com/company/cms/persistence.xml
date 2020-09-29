@@ -8,5 +8,7 @@
         <class>com.company.cms.entity.CardEmvOldKey</class>
         <class>com.company.cms.entity.CardGenReq</class>
         <class>com.company.cms.entity.CardGenReqDet</class>
+        <class>com.company.cms.entity.FileFmt</class>
+        <class>com.company.cms.entity.BrnMaint</class>
     </persistence-unit>
 </persistence>

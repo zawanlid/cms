@@ -5,6 +5,9 @@
         <menu id="card_pin_gen" caption="mainMsg://menu_card.pin.gen">
             <item screen="cms_CardEmbossReq.browse" caption="mainMsg://menu_config.cms_CardEmboss.browse"/>
             <item screen="cms_PinMailerReq.browse" caption="mainMsg://menu_config.cms_PinMailerReq.browse"/>
+            <item screen="cms_FileFmt.browse" caption="mainMsg://menu_config.cms_FileFmt.browse"/>
+            <item screen="cms_BrnMaint.browse" caption="mainMsg://menu_config.cms_BrnMaint.browse"/>
         </menu>
+
     </menu>
 </menu-config>

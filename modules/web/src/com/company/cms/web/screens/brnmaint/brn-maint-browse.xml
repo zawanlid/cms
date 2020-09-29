@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://brnMaintBrowse.caption"
+        focusComponent="brnMaintsTable"
+        messagesPack="com.company.cms.web.screens.brnmaint">
+    <data readOnly="true">
+        <collection id="brnMaintsDc"
+                    class="com.company.cms.entity.BrnMaint">
+            <view extends="_local"/>
+            <loader id="brnMaintsDl">
+                <query>
+                    <![CDATA[select e from cms_BrnMaint e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="brnMaintsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="brnMaintsTable"
+                dataLoader="brnMaintsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="brnMaintsTable"
+                    width="100%"
+                    dataContainer="brnMaintsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="brnCd"/>
+                <column id="brnNm"/>
+                <column id="addr1"/>
+                <column id="addr2"/>
+                <column id="addr3"/>
+                <column id="city"/>
+                <column id="state"/>
+                <column id="cntryCd"/>
+                <column id="maintType"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="brnMaintsTable.create"/>
+                <button id="editBtn" action="brnMaintsTable.edit"/>
+                <button id="removeBtn" action="brnMaintsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
