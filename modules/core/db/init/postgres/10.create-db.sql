@@ -211,6 +211,7 @@ create table CMSBRNMAINT (
     DELETED_BY varchar(50),
     --
     INSTNO integer,
+    BIN varchar(10),
     BRNCD varchar(10),
     BRN_NM integer,
     ADDR1 varchar(30),
@@ -226,6 +227,8 @@ create table CMSBRNMAINT (
     CURR_CRD_LVL integer,
     TOTAL_BATCHNUM integer,
     LAST_BATCHDT date,
+    BATCHSTS varchar(30),
+    CURR_STATUS varchar(30),
     --
     primary key (ID)
 )^

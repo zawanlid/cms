@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://brnMaintCrdTrnBrowse.caption"
+        focusComponent="brnMaintCrdTrnsTable"
+        messagesPack="com.company.cms.web.screens.brnmaintcrdtrn">
+    <data readOnly="true">
+        <collection id="brnMaintCrdTrnsDc"
+                    class="com.company.cms.entity.BrnMaint">
+            <view extends="_local"/>
+            <loader id="brnMaintCrdTrnsDl">
+                <query>
+                    <![CDATA[select e from cms_BrnMaint e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="brnMaintCrdTrnsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="brnMaintCrdTrnsTable"
+                dataLoader="brnMaintCrdTrnsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="brnMaintCrdTrnsTable"
+                    width="100%"
+                    dataContainer="brnMaintCrdTrnsDc">
+            <actions>
+                <action id="edit" type="edit"/>
+            </actions>
+            <columns>
+                <column id="brnCd"/>
+                <column id="brnNm"/>
+                <column id="bin"/>
+                <column id="batchSts"/>
+                <column id="lastBatchDt"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="editBtn" action="brnMaintCrdTrnsTable.edit"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

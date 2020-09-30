@@ -13,6 +13,9 @@ public class BrnMaint extends StandardEntity {
     @Column(name = "INSTNO")
     private Integer instNo;
 
+    @Column(name = "BIN", length = 10)
+    private String bin;
+
     @Column(name = "BRNCD", length = 10)
     private String brnCd;
 
@@ -58,6 +61,36 @@ public class BrnMaint extends StandardEntity {
     @Temporal(TemporalType.DATE)
     @Column(name = "LAST_BATCHDT")
     private Date lastBatchDt;
+
+    @Column(name = "BATCHSTS", length = 30)
+    private String batchSts;
+
+    @Column(name = "CURR_STATUS", length = 30)
+    private String currStatus;
+
+    public String getCurrStatus() {
+        return currStatus;
+    }
+
+    public void setCurrStatus(String currStatus) {
+        this.currStatus = currStatus;
+    }
+
+    public String getBatchSts() {
+        return batchSts;
+    }
+
+    public void setBatchSts(String batchSts) {
+        this.batchSts = batchSts;
+    }
+
+    public String getBin() {
+        return bin;
+    }
+
+    public void setBin(String bin) {
+        this.bin = bin;
+    }
 
     public Date getLastBatchDt() {
         return lastBatchDt;

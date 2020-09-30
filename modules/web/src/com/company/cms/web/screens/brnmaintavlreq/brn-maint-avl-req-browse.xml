@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://brnMaintAvlReqBrowse.caption"
+        focusComponent="brnMaintAvlReqsTable"
+        messagesPack="com.company.cms.web.screens.brnmaintavlreq">
+    <data readOnly="true">
+        <collection id="brnMaintAvlReqsDc"
+                    class="com.company.cms.entity.BrnMaint">
+            <view extends="_local"/>
+            <loader id="brnMaintAvlReqsDl">
+                <query>
+                    <![CDATA[select e from cms_BrnMaint e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="brnMaintAvlReqsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="brnMaintAvlReqsTable"
+                dataLoader="brnMaintAvlReqsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="brnMaintAvlReqsTable"
+                    width="100%"
+                    dataContainer="brnMaintAvlReqsDc">
+            <actions>
+                <action id="edit" type="edit"/>
+            </actions>
+            <columns>
+                <column id="brnCd"/>
+                <column id="brnNm"/>
+                <column id="bin"/>
+                <column id="threshold"/>
+                <column id="totalCrd"/>
+                <column id="issuedCrd"/>
+                <column id="currCrdLvl"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="editBtn" action="brnMaintAvlReqsTable.edit"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

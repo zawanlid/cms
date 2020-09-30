@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://brnMaintAvlReqEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.brnmaintavlreq">
+    <data>
+        <instance id="brnMaintAvlReqDc"
+                  class="com.company.cms.entity.BrnMaint">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="brnMaintAvlReqDc">
+                <column width="350px">
+                    <textField id="brnCdField" property="brnCd" width="120px" colspan="2"/>
+                    <textField id="brnNmField" property="brnNm" width="120px"  colspan="2"/>
+                    <textField id="binField" property="bin" width="120px"  colspan="2"/>
+                    <textField id="totalCrdField" property="totalCrd" width="120px"/>
+                    <textField id="thresholdField" property="threshold" width="120px"/>
+                    <textField id="totalBatchNumField" property="totalBatchNum" width="120px" />
+                </column>
+                <column width="350px">
+                    <textField id="issuedCrdField" property="issuedCrd" width="120px" />
+                    <textField id="currCrdLvlField" property="currCrdLvl" width="120px"/>
+                    <dateField id="lastBatchDtField" property="lastBatchDt" width="120px" />
+                </column>
+            </form>
+
+            <hbox id="editActions" spacing="true">
+                <button action="windowCommitAndClose"/>
+                <button action="windowClose"/>
+            </hbox>
+        </scrollBox>
+
+    </layout>
+</window>

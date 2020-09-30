@@ -7,7 +7,8 @@
             <item screen="cms_PinMailerReq.browse" caption="mainMsg://menu_config.cms_PinMailerReq.browse"/>
             <item screen="cms_FileFmt.browse" caption="mainMsg://menu_config.cms_FileFmt.browse"/>
             <item screen="cms_BrnMaint.browse" caption="mainMsg://menu_config.cms_BrnMaint.browse"/>
+            <item screen="cms_BrnMaintAvlReq.browse" caption="mainMsg://menu_config.cms_BrnMaintAvlReq.browse"/>
+            <item screen="cms_BrnMaintCrdTrn.browse" caption="mainMsg://menu_config.cms_BrnMaintCrdTrn.browse"/>
         </menu>
-
     </menu>
 </menu-config>
