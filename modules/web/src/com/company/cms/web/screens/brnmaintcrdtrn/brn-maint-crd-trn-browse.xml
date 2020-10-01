@@ -7,7 +7,7 @@
     <data readOnly="true">
         <collection id="brnMaintCrdTrnsDc"
                     class="com.company.cms.entity.BrnMaint">
-            <view extends="_local"/>
+            <view extends="_local" systemProperties="true"/>
             <loader id="brnMaintCrdTrnsDl">
                 <query>
                     <![CDATA[select e from cms_BrnMaint e]]>
@@ -35,7 +35,8 @@
                 <column id="brnNm"/>
                 <column id="bin"/>
                 <column id="batchSts"/>
-                <column id="lastBatchDt"/>
+                <column id="updateTs" caption="msg://last.update.date"/>
+                <column id="updatedBy" caption="msg://last.update.by"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

@@ -6,7 +6,7 @@
     <data>
         <instance id="brnMaintCrdTrnDc"
                   class="com.company.cms.entity.BrnMaint">
-            <view extends="_local"/>
+            <view extends="_local" systemProperties="true"/>
             <loader/>
         </instance>
     </data>
@@ -16,19 +16,21 @@
         <scrollBox id="scrollBox" spacing="true">
             <form id="form" dataContainer="brnMaintCrdTrnDc">
                 <column width="350px">
-                    <textField id="brnCdField" property="brnCd" width="120px" colspan="2"/>
-                    <textField id="brnNmField" property="brnNm" width="120px"  colspan="2"/>
-                    <textField id="binField" property="bin" width="120px"  colspan="2"/>
-                    <textField id="batchStsField" property="batchSts" width="120px"  colspan="2"/>
-                    <textField id="currStatusField" property="currStatus" width="120px"  colspan="2"/>
+                    <textField id="brnCdField" property="brnCd" width="150px" colspan="2"/>
+                    <textField id="brnNmField" property="brnNm" width="150px" colspan="2"/>
+                    <textField id="binField" property="bin" width="150px" colspan="2"/>
+                    <textField id="batchStsField" property="batchSts" width="150px" colspan="2" editable="false"/>
+                    <textField id="updateTsField" property="updateTs" width="150px" editable="false"/>
+                    <textField id="currStatusField" property="currStatus" width="150px" colspan="2" editable="false"/>
                 </column>
                 <column width="350px">
+                    <textField id="updatedByField" property="updatedBy" width="150px" editable="false"/>
                 </column>
             </form>
+            <hbox id="editActions" spacing="true">
+                <button action="windowCommitAndClose"/>
+                <button action="windowClose"/>
+            </hbox>
         </scrollBox>
-        <hbox id="editActions" spacing="true">
-            <button action="windowCommitAndClose"/>
-            <button action="windowClose"/>
-        </hbox>
     </layout>
 </window>
