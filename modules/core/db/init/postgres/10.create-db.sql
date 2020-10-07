@@ -124,7 +124,7 @@ create table CMSCRDEMVKEY (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    BIN varchar(255) not null,
+    BIN varchar(10) not null,
     BIN_APPID varchar(12) not null,
     BIN_KEYNM varchar(30),
     BIN_KEYVAL varchar(49),
@@ -257,3 +257,68 @@ create table CMSFILEFMT (
     primary key (ID)
 )^
 -- end CMSFILEFMT
+-- begin CMSCRDLNKFMT
+create table CMSCRDLNKFMT (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    FMTID varchar(10),
+    FIELD varchar(20),
+    DESCR varchar(50),
+    POS integer,
+    LENGTH integer,
+    --
+    primary key (ID)
+)^
+-- end CMSCRDLNKFMT
+
+-- begin CMSCRDCOND
+create table CMSCRDCOND (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    INSTNO integer,
+    BIN varchar(10),
+    BIN_MAX_ACCTS varchar(4),
+    --
+    primary key (ID)
+)^
+-- end CMSCRDCOND
+-- begin CMSCRDCOND_ACCTTYPE
+create table CMSCRDCOND_ACCTTYPE (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    BIN varchar(10),
+    ACCT_TYPE varchar(4),
+    AGE_FRM integer,
+    AGE_TO integer,
+    JNTHLDR_NO integer,
+    OPT_NOTJNT varchar(1),
+    OPT_OR varchar(1),
+    OPT_AND varchar(1),
+    OPT_TRUSTEE varchar(1),
+    OPT_CLIENT varchar(1),
+    CARD_COND_ID uuid not null,
+    --
+    primary key (ID)
+)^
+-- end CMSCRDCOND_ACCTTYPE

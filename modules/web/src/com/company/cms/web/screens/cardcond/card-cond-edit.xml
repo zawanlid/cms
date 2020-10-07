@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://cardCondEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.cardcond">
+    <data>
+        <instance id="cardCondDc"
+                  class="com.company.cms.entity.CardCond"
+                    view="card-cond-with-acct-type-edit-view">
+            <loader/>
+            <collection id="cardCondAcctTypeDc" property="cardCondAcctTypes"/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <groupBox id="cardCondBox" caption="msg://card.cond" stylename="light">
+        <form id="form" dataContainer="cardCondDc">
+            <column width="350px">
+                <textField id="binField" property="bin"/>
+                <textField id="binMaxAcctField" property="binMaxAcct"/>
+            </column>
+        </form>
+        </groupBox>
+        <groupBox id="detsBox" caption="msg://card.cond.acct.type" stylename="light">
+            <table id="detsTable" dataContainer="cardCondAcctTypeDc" width="100%" height="100%">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                </actions>
+                <columns>
+                    <column id="acctType"/>
+                    <column id="ageFrm"/>
+                    <column id="ageTo"/>
+                    <column id="jnthldrNo" />
+                    <column id="optNotJnt"/>
+                    <column id="optOr"/>
+                    <column id="optAnd"/>
+                    <column id="optTrustee"/>
+                    <column id="optClient"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="detsTable.create"/>
+                    <button action="detsTable.edit"/>
+                    <button action="detsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

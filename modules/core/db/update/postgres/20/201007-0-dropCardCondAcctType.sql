@@ -1,0 +1,1 @@
+alter table cms_card_cond_acct_type rename to CMS_CARD_COND_ACCT_TYPE__U03522 ;

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://cardCondBrowse.caption"
+        focusComponent="cardCondsTable"
+        messagesPack="com.company.cms.web.screens.cardcond">
+    <data readOnly="true">
+        <collection id="cardCondsDc"
+                    class="com.company.cms.entity.CardCond">
+            <view extends="_local"/>
+            <loader id="cardCondsDl">
+                <query>
+                    <![CDATA[select e from cms_CardCond e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="cardCondsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="cardCondsTable"
+                dataLoader="cardCondsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="cardCondsTable"
+                    width="100%"
+                    dataContainer="cardCondsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="bin"/>
+                <column id="binMaxAcct"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="cardCondsTable.create"/>
+                <button id="editBtn" action="cardCondsTable.edit"/>
+                <button id="removeBtn" action="cardCondsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

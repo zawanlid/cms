@@ -10,5 +10,10 @@
             <item screen="cms_BrnMaintAvlReq.browse" caption="mainMsg://menu_config.cms_BrnMaintAvlReq.browse"/>
             <item screen="cms_BrnMaintCrdTrn.browse" caption="mainMsg://menu_config.cms_BrnMaintCrdTrn.browse"/>
         </menu>
+    <menu id="card_operation" caption="mainMsg://menu_card.operation">
+        <item screen="cms_CardLnkFmt.browse" caption="mainMsg://menu_config.cms_CardLnkFmt.browse"/>
+        <item screen="cms_CardCond.browse" caption="mainMsg://menu_config.cms_CardCond.browse"/>
+    </menu>
+
     </menu>
 </menu-config>

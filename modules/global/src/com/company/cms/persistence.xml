@@ -10,5 +10,8 @@
         <class>com.company.cms.entity.CardGenReqDet</class>
         <class>com.company.cms.entity.FileFmt</class>
         <class>com.company.cms.entity.BrnMaint</class>
+        <class>com.company.cms.entity.CardLnkFmt</class>
+        <class>com.company.cms.entity.CardCond</class>
+        <class>com.company.cms.entity.CardCondAcctType</class>
     </persistence-unit>
 </persistence>

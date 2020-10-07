@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://cardCondAcctTypeEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.cardcondaccttype">
+    <data>
+        <instance id="cardCondAcctTypeDc"
+                  class="com.company.cms.entity.CardCondAcctType">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="cardCondAcctTypeDc">
+            <column width="350px">
+                <textField id="acctTypeField" property="acctType"/>
+                <textField id="ageFrmField" property="ageFrm"/>
+                <textField id="ageToField" property="ageTo"/>
+                <textField id="jnthldrNoField" property="jnthldrNo"/>
+                <textField id="optNotJntField" property="optNotJnt"/>
+                <textField id="optOrField" property="optOr"/>
+                <textField id="optAndField" property="optAnd"/>
+                <textField id="optTrusteeField" property="optTrustee"/>
+                <textField id="optClientField" property="optClient"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

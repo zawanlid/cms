@@ -10,4 +10,7 @@
     <view class="com.company.cms.entity.CardGenReq" name="pin-mailer-with-det-edit-view" extends="_local">
         <property name="cardGenReqDets" view="_local"/>
     </view>
+    <view class="com.company.cms.entity.CardCond" name="card-cond-with-acct-type-edit-view" extends="_local">
+        <property name="cardCondAcctTypes" view="_local"/>
+    </view>
 </views>

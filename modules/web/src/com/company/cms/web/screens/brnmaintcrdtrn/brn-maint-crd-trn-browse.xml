@@ -35,7 +35,9 @@
                 <column id="brnNm"/>
                 <column id="bin"/>
                 <column id="batchSts"/>
-                <column id="updateTs" caption="msg://last.update.date"/>
+                <column id="updateTs" caption="msg://last.update.date">
+                    <formatter class="com.haulmont.cuba.gui.components.formatters.DateFormatter" type="DATE" format="MMM dd, YYYY"/>
+                </column>
                 <column id="updatedBy" caption="msg://last.update.by"/>
             </columns>
             <rowsCount/>

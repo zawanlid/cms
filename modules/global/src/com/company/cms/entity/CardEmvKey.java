@@ -14,7 +14,7 @@ import java.util.Date;
 public class CardEmvKey extends StandardEntity {
     private static final long serialVersionUID = 951044704825777276L;
 
-    @Column(name = "BIN", nullable = false, unique = true)
+    @Column(name = "BIN", nullable = false, unique = true, length = 10)
     @NotNull
     private String bin;
 

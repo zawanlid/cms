@@ -22,4 +22,5 @@ public class BrnMaintCrdTrnBrowse extends StandardLookup<BrnMaint> {
         editAction.setOpenMode(OpenMode.THIS_TAB);
         editAction.setScreenClass(BrnMaintCrdTrnEdit.class);
     }
+
 }

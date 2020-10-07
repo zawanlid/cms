@@ -1,0 +1,1 @@
+drop table if exists CMS_CARD_COND_ACCT_TYPE__U03522 cascade ;
