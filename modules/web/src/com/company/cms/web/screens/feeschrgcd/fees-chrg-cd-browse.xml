@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://feesChrgCdBrowse.caption"
+        focusComponent="feesChrgCdsTable"
+        messagesPack="com.company.cms.web.screens.feeschrgcd">
+    <data readOnly="true">
+        <collection id="feesChrgCdsDc"
+                    class="com.company.cms.entity.FeesChrgCd">
+            <view extends="_local"/>
+            <loader id="feesChrgCdsDl">
+                <query>
+                    <![CDATA[select e from cms_FeesChrgCd e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="feesChrgCdsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="feesChrgCdsTable"
+                dataLoader="feesChrgCdsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="feesChrgCdsTable"
+                    width="100%"
+                    dataContainer="feesChrgCdsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="instNo"/>
+                <column id="chrgCd"/>
+                <column id="chrgCdDescr"/>
+                <column id="chrgCdCurr"/>
+                <column id="chrgCdTenorby"/>
+                <column id="rate1"/>
+                <column id="rate2"/>
+                <column id="rate3"/>
+                <column id="rate4"/>
+                <column id="rate5"/>
+                <column id="rate6"/>
+                <column id="minAmt"/>
+                <column id="maxAmt"/>
+                <column id="tamt1"/>
+                <column id="tamt2"/>
+                <column id="tamt3"/>
+                <column id="tamt4"/>
+                <column id="tamt5"/>
+                <column id="tamt6"/>
+                <column id="famt1"/>
+                <column id="famt2"/>
+                <column id="famt3"/>
+                <column id="famt4"/>
+                <column id="famt5"/>
+                <column id="famt6"/>
+                <column id="glCd"/>
+                <column id="lstUpd"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="feesChrgCdsTable.create"/>
+                <button id="editBtn" action="feesChrgCdsTable.edit"/>
+                <button id="removeBtn" action="feesChrgCdsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

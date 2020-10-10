@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://customerCrdMastEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.customercrdmast">
+    <data>
+        <instance id="customerCrdMastDc"
+                  class="com.company.cms.entity.CustomerCrdMast">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="customerCrdMastDc">
+                <column width="350px">
+                    <textField id="instnoField" property="instno"/>
+                    <textField id="binField" property="bin"/>
+                    <textField id="crdNumField" property="crdNum"/>
+                    <textField id="crdStsField" property="crdSts"/>
+                    <textField id="clsTypeField" property="clsType"/>
+                    <textField id="issuedField" property="issued"/>
+                    <textField id="crdReturnField" property="crdReturn"/>
+                    <textField id="cycPrdField" property="cycPrd"/>
+                    <textField id="embossNmField" property="embossNm"/>
+                    <textField id="pinRetriesCntField" property="pinRetriesCnt"/>
+                    <textField id="pinOffsetField" property="pinOffset"/>
+                    <textField id="pinSerialNoField" property="pinSerialNo"/>
+                    <textField id="expMthField" property="expMth"/>
+                    <textField id="expYrField" property="expYr"/>
+                    <textField id="collectTypeField" property="collectType"/>
+                    <textField id="cshAvlField" property="cshAvl"/>
+                    <textField id="cshLmtField" property="cshLmt"/>
+                    <textField id="offCshAvlField" property="offCshAvl"/>
+                    <textField id="offCshLmtField" property="offCshLmt"/>
+                    <textField id="trnAvlField" property="trnAvl"/>
+                    <textField id="trnLmtField" property="trnLmt"/>
+                    <textField id="trndrAvlField" property="trndrAvl"/>
+                    <textField id="trndrLmtField" property="trndrLmt"/>
+                    <textField id="ibftAvlField" property="ibftAvl"/>
+                    <textField id="ibftLmtField" property="ibftLmt"/>
+                    <textField id="ibftdrAvlField" property="ibftdrAvl"/>
+                    <textField id="ibftdrLmtField" property="ibftdrLmt"/>
+                    <textField id="billAvlField" property="billAvl"/>
+                    <textField id="billLmtField" property="billLmt"/>
+                    <textField id="freeTxnAvlField" property="freeTxnAvl"/>
+                    <textField id="freeTxnLmtField" property="freeTxnLmt"/>
+                    <textField id="pinRetriesLmtField" property="pinRetriesLmt"/>
+                    <textField id="useAvlField" property="useAvl"/>
+                    <textField id="useLmtField" property="useLmt"/>
+                    <textField id="cardSeqField" property="cardSeq"/>
+                    <textField id="atcField" property="atc"/>
+                    <textField id="langCdField" property="langCd"/>
+                    <textField id="chrgsWaivedField" property="chrgsWaived"/>
+                    <dateField id="pinissuedDtField" property="pinissuedDt"/>
+                    <dateField id="linkDtField" property="linkDt"/>
+                    <dateField id="collectDtField" property="collectDt"/>
+                    <dateField id="closeDtField" property="closeDt"/>
+                    <dateField id="lastAccChgDtField" property="lastAccChgDt"/>
+                    <dateField id="lastActDtField" property="lastActDt"/>
+                    <dateField id="lastMaintDtField" property="lastMaintDt"/>
+                    <dateField id="lastStsChgDtField" property="lastStsChgDt"/>
+                    <dateField id="lastCycDtField" property="lastCycDt"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

@@ -13,5 +13,18 @@
         <class>com.company.cms.entity.CardLnkFmt</class>
         <class>com.company.cms.entity.CardCond</class>
         <class>com.company.cms.entity.CardCondAcctType</class>
+        <class>com.company.cms.entity.CardChrgs</class>
+        <class>com.company.cms.entity.CardMast</class>
+        <class>com.company.cms.entity.CardDet</class>
+        <class>com.company.cms.entity.CardAcct</class>
+        <class>com.company.cms.entity.CustomerCrdMast</class>
+        <class>com.company.cms.entity.CustomerCrdDet</class>
+        <class>com.company.cms.entity.CustomerCrdAcctDet</class>
+        <class>com.company.cms.entity.CmsTrans</class>
+        <class>com.company.cms.entity.CmsRules</class>
+        <class>com.company.cms.entity.CmsTPRule</class>
+        <class>com.company.cms.entity.FeesCat</class>
+        <class>com.company.cms.entity.FeesChrgCd</class>
+        <class>com.company.cms.entity.Fees</class>
     </persistence-unit>
 </persistence>

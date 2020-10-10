@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://cardDetEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.carddet">
+    <data>
+        <instance id="cardDetDc"
+                  class="com.company.cms.entity.CardDet">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="cardDetDc">
+                <column width="350px">
+                    <textField id="binField" property="bin"/>
+                    <textField id="crdNumField" property="crdNum"/>
+                    <textField id="custIdNoField" property="custIdNo"/>
+                    <textField id="custShrtNmField" property="custShrtNm"/>
+                    <textField id="custLongNmField" property="custLongNm"/>
+                    <textField id="custAddr1Field" property="custAddr1"/>
+                    <textField id="custAddr2Field" property="custAddr2"/>
+                    <textField id="custAddr3Field" property="custAddr3"/>
+                    <textField id="custPostCdField" property="custPostCd"/>
+                    <textField id="custCityField" property="custCity"/>
+                    <textField id="custStateField" property="custState"/>
+                    <textField id="custCntryField" property="custCntry"/>
+                    <dateField id="custDobField" property="custDob"/>
+                    <textField id="custPhnoField" property="custPhno"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

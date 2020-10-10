@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://feesChrgCdEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.feeschrgcd">
+    <data>
+        <instance id="feesChrgCdDc"
+                  class="com.company.cms.entity.FeesChrgCd">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="feesChrgCdDc">
+                <column width="350px">
+                    <textField id="instNoField" property="instNo"/>
+                    <textField id="chrgCdField" property="chrgCd"/>
+                    <textField id="chrgCdDescrField" property="chrgCdDescr"/>
+                    <textField id="chrgCdCurrField" property="chrgCdCurr"/>
+                    <textField id="chrgCdTenorbyField" property="chrgCdTenorby"/>
+                    <textField id="rate1Field" property="rate1"/>
+                    <textField id="rate2Field" property="rate2"/>
+                    <textField id="rate3Field" property="rate3"/>
+                    <textField id="rate4Field" property="rate4"/>
+                    <textField id="rate5Field" property="rate5"/>
+                    <textField id="rate6Field" property="rate6"/>
+                    <textField id="minAmtField" property="minAmt"/>
+                    <textField id="maxAmtField" property="maxAmt"/>
+                    <textField id="tamt1Field" property="tamt1"/>
+                    <textField id="tamt2Field" property="tamt2"/>
+                    <textField id="tamt3Field" property="tamt3"/>
+                    <textField id="tamt4Field" property="tamt4"/>
+                    <textField id="tamt5Field" property="tamt5"/>
+                    <textField id="tamt6Field" property="tamt6"/>
+                    <textField id="famt1Field" property="famt1"/>
+                    <textField id="famt2Field" property="famt2"/>
+                    <textField id="famt3Field" property="famt3"/>
+                    <textField id="famt4Field" property="famt4"/>
+                    <textField id="famt5Field" property="famt5"/>
+                    <textField id="famt6Field" property="famt6"/>
+                    <textField id="glCdField" property="glCd"/>
+                    <dateField id="lstUpdField" property="lstUpd"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

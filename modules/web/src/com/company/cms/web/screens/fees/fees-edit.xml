@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://feesEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.fees">
+    <data>
+        <instance id="feesDc"
+                  class="com.company.cms.entity.Fees">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="feesDc">
+                <column width="350px">
+                    <textField id="instNoField" property="instNo"/>
+                    <textField id="trnsChlField" property="trnsChl"/>
+                    <textField id="extTrnCdField" property="extTrnCd"/>
+                    <textField id="chrgsCdField" property="chrgsCd"/>
+                    <textField id="currField" property="curr"/>
+                    <textField id="authNmField" property="authNm"/>
+                    <textField id="catLstField" property="catLst"/>
+                    <textField id="chrgCdLstField" property="chrgCdLst"/>
+                    <textField id="priorityField" property="priority"/>
+                    <textField id="netFeeField" property="netFee"/>
+                    <textField id="termFeeField" property="termFee"/>
+                    <textField id="issFeeField" property="issFee"/>
+                    <textField id="bnbFeeField" property="bnbFee"/>
+                    <textField id="ttlChgField" property="ttlChg"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

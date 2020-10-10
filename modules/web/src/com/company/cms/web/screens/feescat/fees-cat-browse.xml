@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://feesCatBrowse.caption"
+        focusComponent="feesCatsTable"
+        messagesPack="com.company.cms.web.screens.feescat">
+    <data readOnly="true">
+        <collection id="feesCatsDc"
+                    class="com.company.cms.entity.FeesCat">
+            <view extends="_local"/>
+            <loader id="feesCatsDl">
+                <query>
+                    <![CDATA[select e from cms_FeesCat e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="feesCatsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="feesCatsTable"
+                dataLoader="feesCatsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="feesCatsTable"
+                    width="100%"
+                    dataContainer="feesCatsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="catType"/>
+                <column id="catVal"/>
+                <column id="catDescr"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="feesCatsTable.create"/>
+                <button id="editBtn" action="feesCatsTable.edit"/>
+                <button id="removeBtn" action="feesCatsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

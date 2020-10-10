@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://customerCrdMastBrowse.caption"
+        focusComponent="customerCrdMastsTable"
+        messagesPack="com.company.cms.web.screens.customercrdmast">
+    <data readOnly="true">
+        <collection id="customerCrdMastsDc"
+                    class="com.company.cms.entity.CustomerCrdMast">
+            <view extends="_local"/>
+            <loader id="customerCrdMastsDl">
+                <query>
+                    <![CDATA[select e from cms_CustomerCrdMast e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="customerCrdMastsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="customerCrdMastsTable"
+                dataLoader="customerCrdMastsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="customerCrdMastsTable"
+                    width="100%"
+                    dataContainer="customerCrdMastsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="instno"/>
+                <column id="bin"/>
+                <column id="crdNum"/>
+                <column id="crdSts"/>
+                <column id="clsType"/>
+                <column id="issued"/>
+                <column id="crdReturn"/>
+                <column id="cycPrd"/>
+                <column id="embossNm"/>
+                <column id="pinRetriesCnt"/>
+                <column id="pinOffset"/>
+                <column id="pinSerialNo"/>
+                <column id="expMth"/>
+                <column id="expYr"/>
+                <column id="collectType"/>
+                <column id="cshAvl"/>
+                <column id="cshLmt"/>
+                <column id="offCshAvl"/>
+                <column id="offCshLmt"/>
+                <column id="trnAvl"/>
+                <column id="trnLmt"/>
+                <column id="trndrAvl"/>
+                <column id="trndrLmt"/>
+                <column id="ibftAvl"/>
+                <column id="ibftLmt"/>
+                <column id="ibftdrAvl"/>
+                <column id="ibftdrLmt"/>
+                <column id="billAvl"/>
+                <column id="billLmt"/>
+                <column id="freeTxnAvl"/>
+                <column id="freeTxnLmt"/>
+                <column id="pinRetriesLmt"/>
+                <column id="useAvl"/>
+                <column id="useLmt"/>
+                <column id="cardSeq"/>
+                <column id="atc"/>
+                <column id="langCd"/>
+                <column id="chrgsWaived"/>
+                <column id="pinissuedDt"/>
+                <column id="linkDt"/>
+                <column id="collectDt"/>
+                <column id="closeDt"/>
+                <column id="lastAccChgDt"/>
+                <column id="lastActDt"/>
+                <column id="lastMaintDt"/>
+                <column id="lastStsChgDt"/>
+                <column id="lastCycDt"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="customerCrdMastsTable.create"/>
+                <button id="editBtn" action="customerCrdMastsTable.edit"/>
+                <button id="removeBtn" action="customerCrdMastsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

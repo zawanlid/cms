@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://customerCrdAcctDetEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.customercrdacctdet">
+    <data>
+        <instance id="customerCrdAcctDetDc"
+                  class="com.company.cms.entity.CustomerCrdAcctDet">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="customerCrdAcctDetDc">
+                <column width="350px">
+                    <textField id="binField" property="bin"/>
+                    <textField id="crdNumField" property="crdNum"/>
+                    <textField id="acctNoField" property="acctNo"/>
+                    <textField id="acctTypeField" property="acctType"/>
+                    <textField id="acctCcyField" property="acctCcy"/>
+                    <textField id="acctStsField" property="acctSts"/>
+                    <textField id="optPriAcctField" property="optPriAcct"/>
+                    <textField id="optFcshField" property="optFcsh"/>
+                    <textField id="optCshField" property="optCsh"/>
+                    <textField id="optDepField" property="optDep"/>
+                    <textField id="optInqField" property="optInq"/>
+                    <textField id="optReqField" property="optReq"/>
+                    <textField id="optTrfField" property="optTrf"/>
+                    <textField id="optTrfDrField" property="optTrfDr"/>
+                    <textField id="optTrfCrField" property="optTrfCr"/>
+                    <textField id="optTrf3Field" property="optTrf3"/>
+                    <textField id="optTrf3DrField" property="optTrf3Dr"/>
+                    <textField id="optTrf3CrField" property="optTrf3Cr"/>
+                    <textField id="optIbftField" property="optIbft"/>
+                    <textField id="optIbftDrField" property="optIbftDr"/>
+                    <textField id="optIbftCrField" property="optIbftCr"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

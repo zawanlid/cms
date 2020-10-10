@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://cardAcctBrowse.caption"
+        focusComponent="cardAcctsTable"
+        messagesPack="com.company.cms.web.screens.cardacct">
+    <data readOnly="true">
+        <collection id="cardAcctsDc"
+                    class="com.company.cms.entity.CardAcct">
+            <view extends="_local"/>
+            <loader id="cardAcctsDl">
+                <query>
+                    <![CDATA[select e from cms_CardAcct e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="cardAcctsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="cardAcctsTable"
+                dataLoader="cardAcctsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="cardAcctsTable"
+                    width="100%"
+                    dataContainer="cardAcctsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="bin"/>
+                <column id="crdNum"/>
+                <column id="acctNo"/>
+                <column id="acctType"/>
+                <column id="acctCcy"/>
+                <column id="acctSts"/>
+                <column id="optPriAcct"/>
+                <column id="optFcsh"/>
+                <column id="optCsh"/>
+                <column id="optDep"/>
+                <column id="optInq"/>
+                <column id="optReq"/>
+                <column id="optTrf"/>
+                <column id="optTrfDr"/>
+                <column id="optTrfCr"/>
+                <column id="optTrf3"/>
+                <column id="optIbft"/>
+                <column id="optIbftDr"/>
+                <column id="optIbftCr"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="cardAcctsTable.create"/>
+                <button id="editBtn" action="cardAcctsTable.edit"/>
+                <button id="removeBtn" action="cardAcctsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

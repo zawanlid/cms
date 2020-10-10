@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://cardMastBrowse.caption"
+        focusComponent="cardMastsTable"
+        messagesPack="com.company.cms.web.screens.cardmast">
+    <data readOnly="true">
+        <collection id="cardMastsDc"
+                    class="com.company.cms.entity.CardMast">
+            <view extends="_local"/>
+            <loader id="cardMastsDl">
+                <query>
+                    <![CDATA[select e from cms_CardMast e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="cardMastsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="cardMastsTable"
+                dataLoader="cardMastsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="cardMastsTable"
+                    width="100%"
+                    dataContainer="cardMastsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="instNo"/>
+                <column id="bin"/>
+                <column id="crdNum"/>
+                <column id="crdSts"/>
+                <column id="clsType"/>
+                <column id="issueDt"/>
+                <column id="issued"/>
+                <column id="cycPrd"/>
+                <column id="embossNm"/>
+                <column id="pinRetriesCnt"/>
+                <column id="pinOffset"/>
+                <column id="pinSerialNo"/>
+                <column id="expMth"/>
+                <column id="expYr"/>
+                <column id="collectType"/>
+                <column id="fcshAvl"/>
+                <column id="fcshLmt"/>
+                <column id="cshAvl"/>
+                <column id="cshLmt"/>
+                <column id="trnAvl"/>
+                <column id="trnLmt"/>
+                <column id="trndrAvl"/>
+                <column id="trndrLmt"/>
+                <column id="trncrAvl"/>
+                <column id="trncrLmt"/>
+                <column id="ibftAvl"/>
+                <column id="ibftLmt"/>
+                <column id="ibftdrAvl"/>
+                <column id="ibftdrLmt"/>
+                <column id="ibftcrAvl"/>
+                <column id="ibftcrLmt"/>
+                <column id="billAvl"/>
+                <column id="billLmt"/>
+                <column id="freeTxnAvl"/>
+                <column id="freeTxnLmt"/>
+                <column id="pinRetriesLmt"/>
+                <column id="useAvl"/>
+                <column id="useLmt"/>
+                <column id="cardSeq"/>
+                <column id="atc"/>
+                <column id="langCd"/>
+                <column id="chrgsWaived"/>
+                <column id="pinTaggedDt"/>
+                <column id="acctLinkDt"/>
+                <column id="collectDt"/>
+                <column id="closeDt"/>
+                <column id="lastAccChgDt"/>
+                <column id="lastActDt"/>
+                <column id="lastMaintDt"/>
+                <column id="lastStsChgDt"/>
+                <column id="lastCycDt"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="cardMastsTable.create"/>
+                <button id="editBtn" action="cardMastsTable.edit"/>
+                <button id="removeBtn" action="cardMastsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

@@ -322,3 +322,435 @@ create table CMSCRDCOND_ACCTTYPE (
     primary key (ID)
 )^
 -- end CMSCRDCOND_ACCTTYPE
+-- begin CMSCRDACCT
+create table CMSCRDACCT (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    BIN varchar(10),
+    CRDNUM varchar(16),
+    CRD_ACCTNO varchar(18),
+    CRD_ACCTTYPE varchar(2),
+    CRD_ACCTCCY varchar(3),
+    CRD_ACCTSTS varchar(1),
+    CRD_OPT_PRIACCT varchar(1),
+    CRD_OPT_FCSH varchar(1),
+    CRD_OPT_CSH varchar(1),
+    CRD_OPT_DEP varchar(1),
+    CRD_OPT_INQ varchar(1),
+    CRD_OPT_REQ varchar(1),
+    CRD_OPT_TRF varchar(1),
+    CRD_OPT_TRFDR varchar(1),
+    CRD_OPT_TRFCR varchar(1),
+    CRD_OPT_TRF3 varchar(1),
+    CRD_OPT_IBFT varchar(1),
+    CRD_OPT_IBFTDR varchar(1),
+    CRD_OPT_IBFTCR varchar(1),
+    --
+    primary key (ID)
+)^
+-- end CMSCRDACCT
+-- begin CMSCRDMAST
+create table CMSCRDMAST (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    INSTNO integer,
+    BIN varchar(10),
+    CRDNUM varchar(16),
+    CRDSTS varchar(2),
+    CRD_CLSTYPE varchar(5),
+    CRD_ISSUEDT date,
+    CRD_ISSUED integer,
+    CRD_CYCPRD integer,
+    CRD_EMBOSSNM varchar(28),
+    CRD_PINRETRIES_CNT integer,
+    CRD_PINOFFSET varchar(12),
+    CRD_PINSERIALNO varchar(18),
+    CRD_EXPMTH varchar(2),
+    CRD_EXPYR varchar(4),
+    CRD_COLLECT_TYPE varchar(2),
+    CRD_FCSH_AVL integer,
+    CRD_FCSH_LMT integer,
+    CRD_CSH_AVL integer,
+    CRD_CSH_LMT integer,
+    CRD_TRN_AVL integer,
+    CRD_TRN_LMT integer,
+    CRD_TRNDR_AVL integer,
+    CRD_TRNDR_LMT integer,
+    CRD_TRNCR_AVL integer,
+    CRD_TRNCR_LMT integer,
+    CRD_IBFT_AVL integer,
+    CRD_IBFT_LMT integer,
+    CRD_IBFTDR_AVL integer,
+    CRD_IBFTDR_LMT integer,
+    CRD_IBFTCR_AVL integer,
+    CRD_IBFTCR_LMT integer,
+    CRD_BILL_AVL integer,
+    CRD_BILL_LMT integer,
+    CRD_FREETXN_AVL integer,
+    CRD_FREETXN_LMT integer,
+    CRD_PINRETRIES_LMT integer,
+    CRD_USE_AVL integer,
+    CRD_USE_LMT integer,
+    CRD_CARDSEQ integer,
+    CRD_ATC varchar(4),
+    CRD_LANGCD varchar(1),
+    CRD_CHRGS_WAIVED varchar(1),
+    CRD_PINTAGGED_DT date,
+    CRD_ACCTLINK_DT date,
+    CRD_COLLECT_DT date,
+    CRD_CLOSE_DT date,
+    CRD_LASTACCCHG_DT date,
+    CRD_LASTACT_DT date,
+    CRD_LASTMAINT_DT date,
+    CRD_LASTSTSCHG_DT date,
+    CRD_LASTCYC_DT date,
+    --
+    primary key (ID)
+)^
+-- end CMSCRDMAST
+-- begin CMSCRDDET
+create table CMSCRDDET (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    BIN varchar(10),
+    CRDNUM varchar(16),
+    CRD_CUSTIDNO varchar(20),
+    CRD_CUSTSHRTNM varchar(50),
+    CRD_CUSTLONGNM varchar(100),
+    CRD_CUSTADDR1 varchar(100),
+    CRD_CUSTADDR2 varchar(100),
+    CRD_CUSTADDR3 varchar(100),
+    CRD_CUSTPOSTCD varchar(15),
+    CRD_CUSTCITY varchar(30),
+    CRD_CUSTSTATE varchar(30),
+    CRD_CUSTCNTRY varchar(30),
+    CRD_CUSTDOB date,
+    CRD_CUSTPHNO varchar(30),
+    --
+    primary key (ID)
+)^
+-- end CMSCRDDET
+-- begin CMSCRDCHRGS
+create table CMSCRDCHRGS (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    INSTNO integer,
+    BIN varchar(10),
+    CHRGS_TYPE varchar(4),
+    CHRGS_DESCR varchar(50),
+    OPT_1TM varchar(1),
+    OPT_STAFF_WAIVE varchar(1),
+    OPT_CHRG_FREQ varchar(1),
+    OPT_CHRG_BY varchar(1),
+    CHRG_AMT integer,
+    --
+    primary key (ID)
+)^
+-- end CMSCRDCHRGS
+
+-- begin CMSTPRULE
+create table CMSTPRULE (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    INSTNO integer,
+    PRI_TRANCD varchar(50),
+    SEC_TRANCD varchar(100),
+    RNAME varchar(50),
+    INDX integer,
+    STEP integer,
+    --
+    primary key (ID)
+)^
+-- end CMSTPRULE
+-- begin CMSFEES_CHRGCD
+create table CMSFEES_CHRGCD (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    INSTNO integer,
+    CHRGCD varchar(10),
+    CHRGCD_DESCR varchar(100),
+    CHRGCD_CURR varchar(3),
+    CHRGCD_TENORBY varchar(1),
+    RATE1 integer,
+    RATE2 integer,
+    RATE3 integer,
+    RATE4 integer,
+    RATE5 integer,
+    RATE6 integer,
+    MINAMT integer,
+    MAXAMT integer,
+    TAMT1 integer,
+    TAMT2 integer,
+    TAMT3 integer,
+    TAMT4 integer,
+    TAMT5 integer,
+    TAMT6 integer,
+    FAMT1 integer,
+    FAMT2 integer,
+    FAMT3 integer,
+    FAMT4 integer,
+    FAMT5 integer,
+    FAMT6 integer,
+    GLCD varchar(20),
+    LSTUPD date,
+    --
+    primary key (ID)
+)^
+-- end CMSFEES_CHRGCD
+-- begin CMSTRANS
+create table CMSTRANS (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    INSTNO integer,
+    PRI_TRANCD varchar(4),
+    SEC_TRANCD varchar(4),
+    TRANCD_DESCR varchar(100),
+    PERMITTED varchar(1),
+    --
+    primary key (ID)
+)^
+-- end CMSTRANS
+-- begin CMSCUSTCRDACCTDET
+create table CMSCUSTCRDACCTDET (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    BIN varchar(10),
+    CRDNUM varchar(16),
+    CRD_ACCTNO varchar(18),
+    CRD_ACCTTYPE varchar(2),
+    CRD_ACCTCCY varchar(3),
+    CRD_ACCTSTS varchar(1),
+    CRD_OPT_PRIACCT varchar(1),
+    CRD_OPT_FCSH varchar(1),
+    CRD_OPT_CSH varchar(1),
+    CRD_OPT_DEP varchar(1),
+    CRD_OPT_INQ varchar(1),
+    CRD_OPT_REQ varchar(1),
+    CRD_OPT_TRF varchar(1),
+    CRD_OPT_TRFDR varchar(1),
+    CRD_OPT_TRFCR varchar(1),
+    CRD_OPT_TRF3 varchar(1),
+    CRD_OPT_TRF3DR varchar(1),
+    CRD_OPT_TRF3CR varchar(1),
+    CRD_OPT_IBFT varchar(1),
+    CRD_OPT_IBFTDR varchar(1),
+    CRD_OPT_IBFTCR varchar(1),
+    --
+    primary key (ID)
+)^
+-- end CMSCUSTCRDACCTDET
+-- begin CMSCUSTCRDMAST
+create table CMSCUSTCRDMAST (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    INSTNO integer,
+    BIN varchar(10),
+    CRDNUM varchar(16),
+    CRDSTS varchar(2),
+    CRD_CLSTYPE varchar(5),
+    CRD_ISSUED integer,
+    CRD_RETURN integer,
+    CRD_CYCPRD integer,
+    CRD_EMBOSSNM varchar(28),
+    CRD_PINRETRIES_CNT integer,
+    CRD_PINOFFSET varchar(12),
+    CRD_PINSERIALNO varchar(18),
+    CRD_EXPMTH varchar(2),
+    CRD_EXPYR varchar(4),
+    CRD_COLLECT_TYPE varchar(2),
+    CRD_CSH_AVL integer,
+    CRD_CSH_LMT integer,
+    CRD_OFF_CSH_AVL integer,
+    CRD_OFF_CSH_LMT integer,
+    CRD_TRN_AVL integer,
+    CRD_TRN_LMT integer,
+    CRD_TRNDR_AVL integer,
+    CRD_TRNDR_LMT integer,
+    CRD_IBFT_AVL integer,
+    CRD_IBFT_LMT integer,
+    CRD_IBFTDR_AVL integer,
+    CRD_IBFTDR_LMT integer,
+    CRD_BILL_AVL integer,
+    CRD_BILL_LMT integer,
+    CRD_FREETXN_AVL integer,
+    CRD_FREETXN_LMT integer,
+    CRD_PINRETRIES_LMT integer,
+    CRD_USE_AVL integer,
+    CRD_USE_LMT integer,
+    CRD_CARDSEQ integer,
+    CRD_ATC varchar(4),
+    CRD_LANGCD varchar(1),
+    CRD_CHRGS_WAIVED varchar(1),
+    CRD_PINISSUED_DT date,
+    CRD_LINK_DT date,
+    CRD_COLLECT_DT date,
+    CRD_CLOSE_DT date,
+    CRD_LASTACCCHG_DT date,
+    CRD_LASTACT_DT date,
+    CRD_LASTMAINT_DT date,
+    CRD_LASTSTSCHG_DT date,
+    CRD_LASTCYC_DT date,
+    --
+    primary key (ID)
+)^
+-- end CMSCUSTCRDMAST
+-- begin CMSFEES_CAT
+create table CMSFEES_CAT (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    CATTYPE varchar(4),
+    CATVAL varchar(4),
+    CATDESCR varchar(100),
+    --
+    primary key (ID)
+)^
+-- end CMSFEES_CAT
+-- begin CMSCUSTCRDDET
+create table CMSCUSTCRDDET (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    BIN varchar(10),
+    CRDNUM varchar(16),
+    CRD_CUSTIDNO varchar(20),
+    CRD_CUSTSHRTNM varchar(50),
+    CRD_CUSTLONGNM varchar(100),
+    CRD_CUSTADDR1 varchar(100),
+    CRD_CUSTADDR2 varchar(100),
+    CRD_CUSTADDR3 varchar(100),
+    CRD_CUSTADDR4 varchar(100),
+    CRD_CUSTADDR5 varchar(100),
+    CRD_CUSTPOSTCD varchar(15),
+    CRD_CUSTCITY varchar(30),
+    CRD_CUSTSTATE varchar(30),
+    CRD_CUSTCNTRY varchar(30),
+    CRD_CUSTDOB date,
+    CRD_CUSTPHNO varchar(30),
+    --
+    primary key (ID)
+)^
+-- end CMSCUSTCRDDET
+-- begin CMSRULES
+create table CMSRULES (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    INSTNO integer,
+    RNAME varchar(50),
+    RDESCR varchar(100),
+    STS varchar(1),
+    --
+    primary key (ID)
+)^
+-- end CMSRULES
+-- begin CMSFEES
+create table CMSFEES (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    INSTNO integer,
+    TRNSCHL varchar(4),
+    EXTTRNCD varchar(9),
+    CHRGSCD varchar(10),
+    CURR varchar(3),
+    AUTHNM varchar(4),
+    CATLST varchar(500),
+    CHRGCDLST varchar(100),
+    PRIORITY varchar(3),
+    NETFEE integer,
+    TERMFEE integer,
+    ISSFEE integer,
+    BNBFEE integer,
+    TTLCHG integer,
+    --
+    primary key (ID)
+)^
+-- end CMSFEES

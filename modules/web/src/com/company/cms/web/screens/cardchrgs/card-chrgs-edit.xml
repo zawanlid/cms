@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://cardChrgsEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.cardchrgs">
+    <data>
+        <instance id="cardChrgsDc"
+                  class="com.company.cms.entity.CardChrgs">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="cardChrgsDc">
+            <column width="350px">
+                <textField id="instNoField" property="instNo"/>
+                <textField id="binField" property="bin"/>
+                <textField id="chrgsTypeField" property="chrgsType"/>
+                <textField id="chrgsDescrField" property="chrgsDescr"/>
+                <textField id="opt1tmField" property="opt1tm"/>
+                <textField id="optStaffWaiveField" property="optStaffWaive"/>
+                <textField id="optChrgFreqField" property="optChrgFreq"/>
+                <textField id="optChrgByField" property="optChrgBy"/>
+                <textField id="chrgAmtField" property="chrgAmt"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

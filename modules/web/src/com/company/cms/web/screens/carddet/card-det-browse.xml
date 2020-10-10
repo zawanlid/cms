@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://cardDetBrowse.caption"
+        focusComponent="cardDetsTable"
+        messagesPack="com.company.cms.web.screens.carddet">
+    <data readOnly="true">
+        <collection id="cardDetsDc"
+                    class="com.company.cms.entity.CardDet">
+            <view extends="_local"/>
+            <loader id="cardDetsDl">
+                <query>
+                    <![CDATA[select e from cms_CardDet e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="cardDetsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="cardDetsTable"
+                dataLoader="cardDetsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="cardDetsTable"
+                    width="100%"
+                    dataContainer="cardDetsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="bin"/>
+                <column id="crdNum"/>
+                <column id="custIdNo"/>
+                <column id="custShrtNm"/>
+                <column id="custLongNm"/>
+                <column id="custAddr1"/>
+                <column id="custAddr2"/>
+                <column id="custAddr3"/>
+                <column id="custPostCd"/>
+                <column id="custCity"/>
+                <column id="custState"/>
+                <column id="custCntry"/>
+                <column id="custDob"/>
+                <column id="custPhno"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="cardDetsTable.create"/>
+                <button id="editBtn" action="cardDetsTable.edit"/>
+                <button id="removeBtn" action="cardDetsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

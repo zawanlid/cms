@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://cmsTransBrowse.caption"
+        focusComponent="cmsTransesTable"
+        messagesPack="com.company.cms.web.screens.cmstrans">
+    <data readOnly="true">
+        <collection id="cmsTransesDc"
+                    class="com.company.cms.entity.CmsTrans">
+            <view extends="_local"/>
+            <loader id="cmsTransesDl">
+                <query>
+                    <![CDATA[select e from cms_CmsTrans e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="cmsTransesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="cmsTransesTable"
+                dataLoader="cmsTransesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="cmsTransesTable"
+                    width="100%"
+                    dataContainer="cmsTransesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="instNo"/>
+                <column id="priTranCd"/>
+                <column id="secTranCd"/>
+                <column id="tranCdDescr"/>
+                <column id="permitted"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="cmsTransesTable.create"/>
+                <button id="editBtn" action="cmsTransesTable.edit"/>
+                <button id="removeBtn" action="cmsTransesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

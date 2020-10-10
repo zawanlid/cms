@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://feesBrowse.caption"
+        focusComponent="feesesTable"
+        messagesPack="com.company.cms.web.screens.fees">
+    <data readOnly="true">
+        <collection id="feesesDc"
+                    class="com.company.cms.entity.Fees">
+            <view extends="_local"/>
+            <loader id="feesesDl">
+                <query>
+                    <![CDATA[select e from cms_Fees e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="feesesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="feesesTable"
+                dataLoader="feesesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="feesesTable"
+                    width="100%"
+                    dataContainer="feesesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="instNo"/>
+                <column id="trnsChl"/>
+                <column id="extTrnCd"/>
+                <column id="chrgsCd"/>
+                <column id="curr"/>
+                <column id="authNm"/>
+                <column id="catLst"/>
+                <column id="chrgCdLst"/>
+                <column id="priority"/>
+                <column id="netFee"/>
+                <column id="termFee"/>
+                <column id="issFee"/>
+                <column id="bnbFee"/>
+                <column id="ttlChg"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="feesesTable.create"/>
+                <button id="editBtn" action="feesesTable.edit"/>
+                <button id="removeBtn" action="feesesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

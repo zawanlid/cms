@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://cmsRulesEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.cmsrules">
+    <data>
+        <instance id="cmsRulesDc"
+                  class="com.company.cms.entity.CmsRules">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="cmsRulesDc">
+            <column width="350px">
+                <textField id="instNoField" property="instNo"/>
+                <textField id="rNameField" property="rName"/>
+                <textField id="rDescrField" property="rDescr"/>
+                <textField id="stsField" property="sts"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
