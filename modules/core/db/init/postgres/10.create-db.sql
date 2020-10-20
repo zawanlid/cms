@@ -352,6 +352,8 @@ create table CMSCRDACCT (
     CRD_OPT_IBFT varchar(1),
     CRD_OPT_IBFTDR varchar(1),
     CRD_OPT_IBFTCR varchar(1),
+    OPT_RPLM varchar(1),
+    CARD_DET_ID uuid,
     --
     primary key (ID)
 )^
@@ -447,6 +449,7 @@ create table CMSCRDDET (
     CRD_CUSTCNTRY varchar(30),
     CRD_CUSTDOB date,
     CRD_CUSTPHNO varchar(30),
+    CARD_MAST_ID uuid,
     --
     primary key (ID)
 )^
@@ -471,6 +474,7 @@ create table CMSCRDCHRGS (
     OPT_CHRG_FREQ varchar(1),
     OPT_CHRG_BY varchar(1),
     CHRG_AMT integer,
+    CARD_PROFILE_ID uuid not null,
     --
     primary key (ID)
 )^

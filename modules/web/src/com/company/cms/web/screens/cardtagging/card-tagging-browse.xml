@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
-        caption="msg://cardDetBrowse.caption"
+        caption="msg://cardTaggingBrowse.caption"
         focusComponent="cardDetsTable"
-        messagesPack="com.company.cms.web.screens.carddet">
+        messagesPack="com.company.cms.web.screens.cardtagging">
     <data readOnly="true">
         <collection id="cardDetsDc"
                     class="com.company.cms.entity.CardDet">
@@ -30,23 +30,18 @@
                     width="100%"
                     dataContainer="cardDetsDc">
             <actions>
-                <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
             </actions>
             <columns>
                 <column id="crdNum"/>
-                <column id="custLongNm"/>
                 <column id="custIdNo"/>
-                <column id="cardMast.issueDt"/>
+                <column id="custLongNm"/>
                 <column id="cardMast.crdSts"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn" action="cardDetsTable.create"/>
                 <button id="editBtn" action="cardDetsTable.edit"/>
-                <button id="removeBtn" action="cardDetsTable.remove"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

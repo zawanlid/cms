@@ -16,31 +16,18 @@
         <scrollBox id="scrollBox" spacing="true">
             <form id="form" dataContainer="cardAcctDc">
                 <column width="350px">
-                    <textField id="binField" property="bin"/>
-                    <textField id="crdNumField" property="crdNum"/>
+
                     <textField id="acctNoField" property="acctNo"/>
                     <textField id="acctTypeField" property="acctType"/>
-                    <textField id="acctCcyField" property="acctCcy"/>
-                    <textField id="acctStsField" property="acctSts"/>
                     <textField id="optPriAcctField" property="optPriAcct"/>
-                    <textField id="optFcshField" property="optFcsh"/>
-                    <textField id="optCshField" property="optCsh"/>
-                    <textField id="optDepField" property="optDep"/>
-                    <textField id="optInqField" property="optInq"/>
-                    <textField id="optReqField" property="optReq"/>
-                    <textField id="optTrfField" property="optTrf"/>
-                    <textField id="optTrfDrField" property="optTrfDr"/>
-                    <textField id="optTrfCrField" property="optTrfCr"/>
-                    <textField id="optTrf3Field" property="optTrf3"/>
-                    <textField id="optIbftField" property="optIbft"/>
-                    <textField id="optIbftDrField" property="optIbftDr"/>
-                    <textField id="optIbftCrField" property="optIbftCr"/>
+
                 </column>
             </form>
+            <hbox id="editActions" spacing="true">
+                <button action="windowCommitAndClose"/>
+                <button action="windowClose"/>
+            </hbox>
         </scrollBox>
-        <hbox id="editActions" spacing="true">
-            <button action="windowCommitAndClose"/>
-            <button action="windowClose"/>
-        </hbox>
+
     </layout>
 </window>

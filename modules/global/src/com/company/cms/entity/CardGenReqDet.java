@@ -22,7 +22,7 @@ public class CardGenReqDet extends StandardEntity {
     private String batchNum;
 
     @NotNull
-    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup"})
+    @Lookup(type = LookupType.DROPDOWN, actions = "lookup")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "CARD_GEN_ID")
     private CardGenReq cardGenReq;
@@ -56,7 +56,6 @@ public class CardGenReqDet extends StandardEntity {
     @Temporal(TemporalType.DATE)
     @Column(name = "EXPDT")
     private Date expDt;
-
 
 
     public Date getExpDt() {

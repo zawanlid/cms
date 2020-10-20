@@ -1,59 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
-        caption="msg://cardDetEdit.caption"
+        caption="msg://cardRnwRplctEdit.caption"
         focusComponent="form"
-        messagesPack="com.company.cms.web.screens.carddet">
+        messagesPack="com.company.cms.web.screens.cardrnwrplct">
     <data>
         <instance id="cardDetDc"
                   class="com.company.cms.entity.CardDet">
-            <view extends="card-det-with-card-acct-edit-view">
+            <view extends="_local">
                 <property name="cardMast" view="_local"/>
-                <property name="cardAccts" view="_local"/>
             </view>
             <loader/>
-            <collection id="cardAcctsDc" property="cardAccts" />
         </instance>
     </data>
     <dialogMode height="600"
                 width="800"/>
     <layout expand="scrollBox" spacing="true">
         <scrollBox id="scrollBox" spacing="true">
-            <groupBox id="detsBox" caption="msg://card.det" stylename="light">
             <form id="form" dataContainer="cardDetDc">
                 <column width="350px">
-                    <textField id="crdNumField" property="crdNum" width="250px" colspan="2"/>
+                    <textField id="crdNumField" property="crdNum" width="250px" editable="false"/>
                     <dateField id="cardMast_IssueDtField" width="250px" property="cardMast.issueDt" />
                     <textField id="custIdNoField" property="custIdNo" width="250px" colspan="2"/>
                     <textField id="custLongNmField" property="custLongNm" width="250px" colspan="2"/>
+                    <textField id="crdNumNewField" property="crdNum" width="250px" caption="msg://card_num_new"/>
                 </column>
                 <column width="100px">
                     <label/>
                 </column>
                 <column width="350px">
                     <lookupField id="cardMastCrdStsField"  width="250px" property="cardMast.crdSts"/>
+                    <dateField id="cardMast_ExpDtField" width="250px" property="cardMast.issueDt" caption="msg://Card_Expiry"/>
                 </column>
             </form>
-            </groupBox>
-            <groupBox id="acctBox" caption="msg://card.acct" stylename="light">
-                <table id="detsTable" dataContainer="cardAcctsDc" width="100%" height="100%">
-                    <actions>
-                        <action id="create" type="create"/>
-                        <action id="edit" type="edit"/>
-                        <action id="remove" type="remove"/>
-                    </actions>
-                    <columns>
-                        <column id="acctNo"/>
-                        <column id="acctType"/>
-                        <column id="optPriAcct"/>
-                    </columns>
-                    <buttonsPanel>
-                        <button action="detsTable.create"/>
-                        <button action="detsTable.edit"/>
-                        <button action="detsTable.remove"/>
-                    </buttonsPanel>
-                </table>
-            </groupBox>
-
             <hbox id="editActions" spacing="true">
                 <button action="windowCommitAndClose"/>
                 <button action="windowClose"/>

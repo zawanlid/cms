@@ -1,10 +1,11 @@
 package com.company.cms.entity;
 
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Table(name = "CMSCRDCHRGS")
 @Entity(name = "cms_CardChrgs")
@@ -37,6 +38,20 @@ public class CardChrgs extends StandardEntity {
 
     @Column(name = "CHRG_AMT")
     private Integer chrgAmt;
+
+    @NotNull
+    @OnDelete(DeletePolicy.CASCADE)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "CARD_PROFILE_ID")
+    private CardProfile cardProfile;
+
+    public CardProfile getCardProfile() {
+        return cardProfile;
+    }
+
+    public void setCardProfile(CardProfile cardProfile) {
+        this.cardProfile = cardProfile;
+    }
 
     public Integer getChrgAmt() {
         return chrgAmt;

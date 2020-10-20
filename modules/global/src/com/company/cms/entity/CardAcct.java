@@ -2,9 +2,7 @@ package com.company.cms.entity;
 
 import com.haulmont.cuba.core.entity.StandardEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "CMSCRDACCT")
 @Entity(name = "cms_CardAcct")
@@ -67,6 +65,29 @@ public class CardAcct extends StandardEntity {
 
     @Column(name = "CRD_OPT_IBFTCR", length = 1)
     private String optIbftCr;
+
+    @Column(name = "OPT_RPLM", length = 1)
+    private String optRplm;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CARD_DET_ID")
+    private CardDet cardDet;
+
+    public String getOptRplm() {
+        return optRplm;
+    }
+
+    public void setOptRplm(String optRplm) {
+        this.optRplm = optRplm;
+    }
+
+    public CardDet getCardDet() {
+        return cardDet;
+    }
+
+    public void setCardDet(CardDet cardDet) {
+        this.cardDet = cardDet;
+    }
 
     public String getOptIbftCr() {
         return optIbftCr;

@@ -1,9 +1,13 @@
 package com.company.cms.entity;
 
+import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "CMSCRDDET")
 @Entity(name = "cms_CardDet")
@@ -52,6 +56,31 @@ public class CardDet extends StandardEntity {
 
     @Column(name = "CRD_CUSTPHNO", length = 30)
     private String custPhno;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CARD_MAST_ID")
+    private CardMast cardMast;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "cardDet")
+    private List<CardAcct> cardAccts;
+
+    public List<CardAcct> getCardAccts() {
+        return cardAccts;
+    }
+
+    public void setCardAccts(List<CardAcct> cardAccts) {
+        this.cardAccts = cardAccts;
+    }
+
+    public CardMast getCardMast() {
+        return cardMast;
+    }
+
+    public void setCardMast(CardMast cardMast) {
+        this.cardMast = cardMast;
+    }
 
     public String getCustPhno() {
         return custPhno;

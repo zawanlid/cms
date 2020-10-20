@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://cardTaggingEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cms.web.screens.cardtagging">
+    <data>
+        <instance id="cardDetDc"
+                  class="com.company.cms.entity.CardDet">
+            <view extends="_local">
+                <property name="cardMast" view="_local"/>
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="cardDetDc">
+                <column width="350px">
+                    <textField id="crdNumField" property="crdNum"/>
+                    <textField id="custIdNoField" property="custIdNo"/>
+                    <textField id="custLongNmField" property="custLongNm"/>
+                    <lookupField id="cardMastCrdStsField"  width="250px" property="cardMast.crdSts" editable="false"/>
+                    <lookupField id="cardMastCrdStsNewField"  width="250px" property="cardMast.crdSts" caption="msg://card_status_new"/>
+                </column>
+            </form>
+            <hbox id="editActions" spacing="true">
+                <button action="windowCommitAndClose"/>
+                <button action="windowClose"/>
+            </hbox>
+        </scrollBox>
+
+    </layout>
+</window>

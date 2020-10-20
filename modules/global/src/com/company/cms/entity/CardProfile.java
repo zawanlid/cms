@@ -1,12 +1,15 @@
 package com.company.cms.entity;
 
+import com.company.cms.entity.model.MailerType;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Table(name = "CMSCRDPROFILE")
 @Entity(name = "cms_CardProfile")
@@ -111,6 +114,18 @@ public class CardProfile extends StandardEntity {
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "CRD_EMV_KEY_ID")
     private CardEmvKey cardEmvKey;
+
+    @OnDeleteInverse(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "cardProfile")
+    private List<CardChrgs> cardChrgs;
+
+    public List<CardChrgs> getCardChrgs() {
+        return cardChrgs;
+    }
+
+    public void setCardChrgs(List<CardChrgs> cardChrgs) {
+        this.cardChrgs = cardChrgs;
+    }
 
     /**
      * This event listener is to set BIN value from card profile to detail entities.

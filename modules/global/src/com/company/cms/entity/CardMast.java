@@ -1,9 +1,15 @@
 package com.company.cms.entity;
 
+import com.company.cms.entity.model.CardStatus;
+import com.company.cms.entity.model.MailerType;
+import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "CMSCRDMAST")
 @Entity(name = "cms_CardMast")
@@ -172,6 +178,19 @@ public class CardMast extends StandardEntity {
     @Temporal(TemporalType.DATE)
     @Column(name = "CRD_LASTCYC_DT")
     private Date lastCycDt;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "cardMast")
+    private List<CardDet> cardDets;
+
+    public List<CardDet> getCardDets() {
+        return cardDets;
+    }
+
+    public void setCardDets(List<CardDet> cardDets) {
+        this.cardDets = cardDets;
+    }
 
     public Date getLastCycDt() {
         return lastCycDt;
@@ -549,12 +568,12 @@ public class CardMast extends StandardEntity {
         this.clsType = clsType;
     }
 
-    public String getCrdSts() {
-        return crdSts;
+    public CardStatus getCrdSts() {
+        return crdSts == null ? null : CardStatus.fromId(crdSts);
     }
 
-    public void setCrdSts(String crdSts) {
-        this.crdSts = crdSts;
+    public void setCrdSts(CardStatus cardStatus) {
+        this.crdSts = cardStatus == null ? null : cardStatus.getId();
     }
 
     public String getCrdNum() {

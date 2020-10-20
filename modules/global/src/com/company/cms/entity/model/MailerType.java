@@ -1,4 +1,4 @@
-package com.company.cms.entity;
+package com.company.cms.entity.model;
 
 import com.haulmont.chile.core.datatypes.impl.EnumClass;
 
