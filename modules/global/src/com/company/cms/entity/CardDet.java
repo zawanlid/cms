@@ -6,6 +6,7 @@ import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
@@ -57,8 +58,9 @@ public class CardDet extends StandardEntity {
     @Column(name = "CRD_CUSTPHNO", length = 30)
     private String custPhno;
 
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CARD_MAST_ID")
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @NotNull
     private CardMast cardMast;
 
     @Composition

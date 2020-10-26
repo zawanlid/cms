@@ -1,1 +1,0 @@
-drop table if exists CMS_CARD_GEN_REQ_DET__U22754 cascade ;

@@ -23,4 +23,9 @@
         <property name="cardAccts" view="_local"/>
         <property name="cardMast" view="_minimal"/>
     </view>
+    <view class="com.company.cms.entity.CustomerCrdMast" name="cust-card-det-with-acct-det-edit-view" extends="_local">
+        <property name="customerCrdAcctDet" view="_local"/>
+        <property name="customerCrdDet" view="_local"/>
+        <property name="expDt"/>
+    </view>
 </views>

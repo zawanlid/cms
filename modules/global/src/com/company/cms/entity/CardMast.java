@@ -1,15 +1,14 @@
 package com.company.cms.entity;
 
 import com.company.cms.entity.model.CardStatus;
-import com.company.cms.entity.model.MailerType;
 import com.haulmont.chile.core.annotations.Composition;
+import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Table(name = "CMSCRDMAST")
 @Entity(name = "cms_CardMast")
@@ -181,15 +180,28 @@ public class CardMast extends StandardEntity {
 
     @Composition
     @OnDelete(DeletePolicy.CASCADE)
-    @OneToMany(mappedBy = "cardMast")
-    private List<CardDet> cardDets;
+    @JoinColumn(name = "CRD_DET_ID")
+    @OneToOne(fetch = FetchType.LAZY)
+    private CardDet cardDets;
 
-    public List<CardDet> getCardDets() {
+    @Transient
+    @MetaProperty(related = {"expMth", "expYr"})
+    private String expDt;
+
+    public void setCardDets(CardDet cardDets) {
+        this.cardDets = cardDets;
+    }
+
+    public CardDet getCardDets() {
         return cardDets;
     }
 
-    public void setCardDets(List<CardDet> cardDets) {
-        this.cardDets = cardDets;
+    public String getExpDt() {
+        return expMth+"/"+expYr;
+    }
+
+    public void setExpDt(String expDt) {
+        this.expDt = expDt;
     }
 
     public Date getLastCycDt() {

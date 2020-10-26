@@ -1,1 +1,0 @@
-create unique index IDX_CMSCRDPROFILEDET_UK_BIN on CMSCRDPROFILEDET (BIN) where DELETE_TS is null ;

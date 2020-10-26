@@ -18,14 +18,15 @@
         <item screen="cms_CardRnwRplct.browse" caption="mainMsg://menu_config.cms_CardRnwRplct.browse"/>
         <item screen="cms_CardTagging.browse" caption="mainMsg://menu_config.cms_CardTagging.browse"/>
     </menu>
-
+        <item screen="cms_CustomerCrdMast.browse" caption="mainMsg://menu_config.cms_CustomerCrdMast.browse"/>
+        <!--        <item screen="cms_CustomerCrdMast.browse" caption="mainMsg://menu_config.cms_CustomerCrdMast.browse"/>-->
         <!--
                 <item screen="cms_CardMast.browse" caption="mainMsg://menu_config.cms_CardMast.browse"/>
                 <item screen="cms_CardChrgs.browse" caption="mainMsg://menu_config.cms_CardChrgs.browse"/>
                 <item screen="cms_CardMast.browse" caption="mainMsg://menu_config.cms_CardMast.browse"/>
                 <item screen="cms_CardDet.browse" caption="mainMsg://menu_config.cms_CardDet.browse"/>
                 <item screen="cms_CardAcct.browse" caption="mainMsg://menu_config.cms_CardAcct.browse"/>
-                <item screen="cms_CustomerCrdMast.browse" caption="mainMsg://menu_config.cms_CustomerCrdMast.browse"/>
+
                 <item screen="cms_CustomerCrdDet.browse" caption="mainMsg://menu_config.cms_CustomerCrdDet.browse"/>
                 <item screen="cms_CustomerCrdAcctDet.browse" caption="mainMsg://menu_config.cms_CustomerCrdAcctDet.browse"/>
                 <item screen="cms_CmsTrans.browse" caption="mainMsg://menu_config.cms_CmsTrans.browse"/>

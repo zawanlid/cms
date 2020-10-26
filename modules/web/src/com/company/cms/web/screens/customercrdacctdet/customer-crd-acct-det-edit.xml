@@ -14,31 +14,41 @@
                 width="800"/>
     <layout expand="scrollBox" spacing="true">
         <scrollBox id="scrollBox" spacing="true">
+            <split />
             <form id="form" dataContainer="customerCrdAcctDetDc">
                 <column width="350px">
-                    <textField id="binField" property="bin"/>
-                    <textField id="crdNumField" property="crdNum"/>
                     <textField id="acctNoField" property="acctNo"/>
-                    <textField id="acctTypeField" property="acctType"/>
                     <textField id="acctCcyField" property="acctCcy"/>
-                    <textField id="acctStsField" property="acctSts"/>
                     <textField id="optPriAcctField" property="optPriAcct"/>
-                    <textField id="optFcshField" property="optFcsh"/>
-                    <textField id="optCshField" property="optCsh"/>
-                    <textField id="optDepField" property="optDep"/>
-                    <textField id="optInqField" property="optInq"/>
-                    <textField id="optReqField" property="optReq"/>
-                    <textField id="optTrfField" property="optTrf"/>
-                    <textField id="optTrfDrField" property="optTrfDr"/>
-                    <textField id="optTrfCrField" property="optTrfCr"/>
-                    <textField id="optTrf3Field" property="optTrf3"/>
-                    <textField id="optTrf3DrField" property="optTrf3Dr"/>
-                    <textField id="optTrf3CrField" property="optTrf3Cr"/>
-                    <textField id="optIbftField" property="optIbft"/>
-                    <textField id="optIbftDrField" property="optIbftDr"/>
-                    <textField id="optIbftCrField" property="optIbftCr"/>
+                </column>
+                <column width="350px">
+                    <textField id="acctTypeField" property="acctType"/>
+                    <textField id="acctStsField" property="acctSts"/>
                 </column>
             </form>
+
+            <groupBox caption="msg://allowed_trans" orientation="horizontal">
+                <form id="allowed_trans_form1" dataContainer="customerCrdAcctDetDc">
+                    <column>
+                        <textField id="allowed_trans_optFcshField" property="optFcsh"/>
+                        <textField id="allowed_trans_optTrfDrField" property="optTrfDr"/>
+                        <textField id="allowed_trans_optTrf3DrField" property="optTrf3Dr"/>
+                        <textField id="allowed_trans_optIbftDrField" property="optIbftDr"/>
+                        <textField id="allowed_trans_optDepField" property="optDep"/>
+                        <textField id="allowed_trans_optInqField" property="optInq"/>
+                    </column>
+                </form>
+                <form id="allowed_trans_form2" dataContainer="customerCrdAcctDetDc">
+                    <column>
+                        <textField id="allowed_trans_optCshField" property="optCsh"/>
+                        <textField id="allowed_trans_optTrfCrField" property="optTrfCr"/>
+                        <textField id="allowed_trans_optTrf3CrField" property="optTrf3Cr"/>
+                        <textField id="allowed_trans_optIbftCrField" property="optIbftCr"/>
+                        <textField id="allowed_trans_optPymtField" property="optPymt"/>
+                        <textField id="allowed_trans_optReqField" property="optReq"/>
+                    </column>
+                </form>
+            </groupBox>
         </scrollBox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>

@@ -1,7 +1,9 @@
 package com.company.cms.entity.model;
 
+import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.chile.core.datatypes.impl.EnumClass;
 
+@NamePattern("%s|id")
 public enum MailerType implements EnumClass<Integer> {
 
     ONE_UP   (1)

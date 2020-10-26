@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <metadata xmlns="http://schemas.haulmont.com/cuba/metadata.xsd">
 
+    <datatypes>
+        <datatype id="sdate" class="com.company.cms.entity.datatype.StandardDate"/>
+    </datatypes>
     <metadata-model root-package="com.company.cms" namespace="cms"/>
 
 </metadata>

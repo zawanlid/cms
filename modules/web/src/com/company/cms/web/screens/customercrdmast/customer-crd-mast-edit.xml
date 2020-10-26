@@ -1,74 +1,226 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://customerCrdMastEdit.caption"
-        focusComponent="form"
+        focusComponent="cardInfo_form1"
         messagesPack="com.company.cms.web.screens.customercrdmast">
     <data>
         <instance id="customerCrdMastDc"
                   class="com.company.cms.entity.CustomerCrdMast">
-            <view extends="_local"/>
+            <view extends="cust-card-det-with-acct-det-edit-view">
+            </view>
             <loader/>
+            <collection id="customerCrdAcctDetDC" property="customerCrdAcctDet"/>
         </instance>
     </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="scrollBox" spacing="true">
-        <scrollBox id="scrollBox" spacing="true">
-            <form id="form" dataContainer="customerCrdMastDc">
-                <column width="350px">
-                    <textField id="instnoField" property="instno"/>
-                    <textField id="binField" property="bin"/>
-                    <textField id="crdNumField" property="crdNum"/>
-                    <textField id="crdStsField" property="crdSts"/>
-                    <textField id="clsTypeField" property="clsType"/>
-                    <textField id="issuedField" property="issued"/>
-                    <textField id="crdReturnField" property="crdReturn"/>
-                    <textField id="cycPrdField" property="cycPrd"/>
-                    <textField id="embossNmField" property="embossNm"/>
-                    <textField id="pinRetriesCntField" property="pinRetriesCnt"/>
-                    <textField id="pinOffsetField" property="pinOffset"/>
-                    <textField id="pinSerialNoField" property="pinSerialNo"/>
-                    <textField id="expMthField" property="expMth"/>
-                    <textField id="expYrField" property="expYr"/>
-                    <textField id="collectTypeField" property="collectType"/>
-                    <textField id="cshAvlField" property="cshAvl"/>
-                    <textField id="cshLmtField" property="cshLmt"/>
-                    <textField id="offCshAvlField" property="offCshAvl"/>
-                    <textField id="offCshLmtField" property="offCshLmt"/>
-                    <textField id="trnAvlField" property="trnAvl"/>
-                    <textField id="trnLmtField" property="trnLmt"/>
-                    <textField id="trndrAvlField" property="trndrAvl"/>
-                    <textField id="trndrLmtField" property="trndrLmt"/>
-                    <textField id="ibftAvlField" property="ibftAvl"/>
-                    <textField id="ibftLmtField" property="ibftLmt"/>
-                    <textField id="ibftdrAvlField" property="ibftdrAvl"/>
-                    <textField id="ibftdrLmtField" property="ibftdrLmt"/>
-                    <textField id="billAvlField" property="billAvl"/>
-                    <textField id="billLmtField" property="billLmt"/>
-                    <textField id="freeTxnAvlField" property="freeTxnAvl"/>
-                    <textField id="freeTxnLmtField" property="freeTxnLmt"/>
-                    <textField id="pinRetriesLmtField" property="pinRetriesLmt"/>
-                    <textField id="useAvlField" property="useAvl"/>
-                    <textField id="useLmtField" property="useLmt"/>
-                    <textField id="cardSeqField" property="cardSeq"/>
-                    <textField id="atcField" property="atc"/>
-                    <textField id="langCdField" property="langCd"/>
-                    <textField id="chrgsWaivedField" property="chrgsWaived"/>
-                    <dateField id="pinissuedDtField" property="pinissuedDt"/>
-                    <dateField id="linkDtField" property="linkDt"/>
-                    <dateField id="collectDtField" property="collectDt"/>
-                    <dateField id="closeDtField" property="closeDt"/>
-                    <dateField id="lastAccChgDtField" property="lastAccChgDt"/>
-                    <dateField id="lastActDtField" property="lastActDt"/>
-                    <dateField id="lastMaintDtField" property="lastMaintDt"/>
-                    <dateField id="lastStsChgDtField" property="lastStsChgDt"/>
-                    <dateField id="lastCycDtField" property="lastCycDt"/>
-                </column>
-            </form>
-        </scrollBox>
-        <hbox id="editActions" spacing="true">
-            <button action="windowCommitAndClose"/>
-            <button action="windowClose"/>
-        </hbox>
+    <layout expand="tabs" spacing="true">
+        <split/>
+        <tabSheet id="tabs">
+            <tab id="cardInfo_tab" caption="msg://cardInfo">
+                <scrollBox id="cardInfo_scrollBox" spacing="true">
+                    <split/>
+                    <groupBox caption="msg://customerCrdGenral" orientation="horizontal">
+                        <form id="cardInfo_form1" dataContainer="customerCrdMastDc">
+                    <column>
+                        <textField id="cardInfo_binField" property="bin"/>
+                        <textField id="cardInfo_embossNmField" property="embossNm"/>
+                        <textField id="cardInfo_pinSerialNoField" property="pinSerialNo"/>
+                        <textField id="cardInfo_collectTypeField" property="collectType"/>
+                        <textField id="cardInfo_expdtField" property="expDt" caption="msg://CRD_EXPDT" editable="false"/>
+                        <lookupField id="cardInfo_clsTypeField" property="clsType"/>
+                        <textField id="cardInfo_cardSeqField" property="cardSeq"/>
+                    </column>
+                        </form>
+                        <form id="cardInfo_form2" dataContainer="customerCrdMastDc">
+                            <column>
+                                <textField id="cardInfo_crdNumField" property="crdNum"/>
+                                <lookupField id="cardInfo_langCdField" property="langCd"/>
+                                <dateField id="cardInfo_pinissuedDtField" property="pinissuedDt" width="100%"/>
+                                <lookupField id="cardInfo_crdStsField" property="crdSts" caption="msg://card.status"/>
+                                <textField id="cardInfo_homeBrnField" property="homeBrn"/>
+                                <textField id="cardInfo_atcField" property="atc"/>
+                            </column>
+                        </form>
+                    </groupBox>
+                    <groupBox caption="msg://customerCrdDate" orientation="horizontal">
+                        <form id="cardInfo_form3" dataContainer="customerCrdMastDc">
+                            <column>
+                                <dateField id="cardInfo_collectDtField" property="collectDt" width="100%"/>
+                                <dateField id="cardInfo_lastAccChgDtField" property="lastAccChgDt" width="100%"/>
+                                <dateField id="cardInfo_lastMaintDtField" property="lastMaintDt" width="100%"/>
+                                <dateField id="cardInfo_lastCycDtField" property="lastCycDt" width="100%"/>
+                            </column>
+                        </form>
+                        <form id="cardInfo_form4" dataContainer="customerCrdMastDc">
+                            <column>
+                                <dateField id="cardInfo_closeDtField" property="closeDt"/>
+                                <dateField id="cardInfo_lastActDtField" property="lastActDt"/>
+                                <dateField id="cardInfo_lastStsChgDtField" property="lastStsChgDt"/>
+                            </column>
+                        </form>
+                    </groupBox>
+                    <groupBox caption="msg://customerCrdIssuance" orientation="horizontal">
+                        <form id="cardInfo_form5" dataContainer="customerCrdMastDc">
+                            <column>
+                                <dateField id="cardInfo_linkDtField" property="linkDt" width="100%"/>
+                                <textField id="cardInfo_issuedField" property="issued"/>
+                            </column>
+                        </form>
+                        <form id="cardInfo_form6" dataContainer="customerCrdMastDc">
+                            <column>
+                                <label/>
+                                <label value=" " height="20px"/>
+                                <textField id="cardInfo_crdReturnField" property="crdReturn"/>
+                            </column>
+                        </form>
+                    </groupBox>
+                    <hbox id="cardInfo_editActions" spacing="true">
+                        <button action="windowCommitAndClose"/>
+                        <button action="windowClose"/>
+                    </hbox>
+                </scrollBox>
+            </tab>
+            <tab id="limitNcycles_tab" caption="msg://limitandcycles">
+                <scrollBox id="limitNcycles_scrollBox" spacing="true">
+                    <split/>
+                    <groupBox caption="msg://customerCrdGenral" orientation="horizontal">
+                        <form id="limitNcycles_form1" dataContainer="customerCrdMastDc">
+                            <column>
+                                <textField id="limitNcycles_useLmtField" property="useLmt"/>
+                                <textField id="limitNcycles_useAvlField" property="useAvl"/>
+                                <textField id="limitNcycles_freeTxnLmtField" property="freeTxnLmt"/>
+                                <textField id="limitNcycles_cycPrdField" property="cycPrd"/>
+                            </column>
+                        </form>
+                        <form id="limitNcycles_form2" dataContainer="customerCrdMastDc">
+                            <column>
+                                <textField id="limitNcycles_pinRetriesLmtField" property="pinRetriesLmt"/>
+                                <textField id="limitNcycles_pinRetriesCntField" property="pinRetriesCnt"/>
+                                <textField id="limitNcycles_freeTxnAvlField" property="freeTxnAvl"/>
+                            </column>
+                        </form>
+                    </groupBox>
+                    <groupBox caption="msg://customerCrdLimits" orientation="horizontal">
+                        <form id="limitNcycles_form3" dataContainer="customerCrdMastDc">
+                            <column>
+                                <textField id="limitNcycles_cshLmtField" property="cshLmt"/>
+                                <textField id="limitNcycles_offCshLmtField" property="offCshLmt"/>
+                                <textField id="limitNcycles_trnLmtField" property="trnLmt"/>
+                                <textField id="limitNcycles_trndrLmtField" property="trndrLmt"/>
+                                <textField id="limitNcycles_trn3LmtField" property="trn3Lmt"/>
+                                <textField id="limitNcycles_ibftLmtField" property="ibftLmt"/>
+                                <textField id="limitNcycles_ibftdrLmtField" property="ibftdrLmt"/>
+                                <textField id="limitNcycles_billLmtField" property="billLmt"/>
+                            </column>
+                        </form>
+                        <form id="limitNcycles_form4" dataContainer="customerCrdMastDc">
+                            <column>
+                                <textField id="limitNcycles_cshAvlField" property="cshAvl"/>
+                                <textField id="limitNcycles_offCshAvlField" property="offCshAvl"/>
+                                <textField id="limitNcycles_trnAvlField" property="trnAvl"/>
+                                <textField id="limitNcycles_trndrAvlField" property="trndrAvl"/>
+                                <textField id="limitNcycles_trn3AvlField" property="trn3Avl"/>
+                                <textField id="limitNcycles_ibftAvlField" property="ibftAvl"/>
+                                <textField id="limitNcycles_ibftdrAvlField" property="ibftdrAvl"/>
+                                <textField id="limitNcycles_billAvlField" property="billAvl"/>
+                            </column>
+                        </form>
+                    </groupBox>
+                    <hbox id="limitNcycles_editActions" spacing="true">
+                        <button action="windowCommitAndClose"/>
+                        <button action="windowClose"/>
+                    </hbox>
+                </scrollBox>
+            </tab>
+            <tab id="holderInfo_tab" caption="msg://holderInfo">
+                <scrollBox id="holderInfo_scrollBox" spacing="true">
+                    <split/>
+                    <groupBox caption="msg://holderInfo_Genral" orientation="horizontal">
+                        <form id="holderInfo_form1" dataContainer="customerCrdMastDc">
+                            <column>
+                                <textField id="holderInfo_custIdNoField" property="customerCrdDet.custIdNo"/>
+                                <textField id="holderInfo_custShrtNmField" property="customerCrdDet.custShrtNm"/>
+                                <textField id="holderInfo_custPhNoField" property="customerCrdDet.custPhNo"/>
+                                <textField id="holderInfo_custAddr1Field" property="customerCrdDet.custAddr1"/>
+                                <textField id="holderInfo_custAddr2Field" property="customerCrdDet.custAddr2"/>
+                                <textField id="holderInfo_custAddr3Field" property="customerCrdDet.custAddr3"/>
+                                <textField id="holderInfo_custAddr4Field" property="customerCrdDet.custAddr4"/>
+                                <textField id="holderInfo_custAddr5Field" property="customerCrdDet.custAddr5"/>
+                                <textField id="holderInfo_custNotesField" property="customerCrdDet.custNotes"/>
+                            </column>
+                        </form>
+                        <form id="holderInfo_form2" dataContainer="customerCrdMastDc">
+                            <column>
+                                <textField id="holderInfo_custLongNmField" property="customerCrdDet.custLongNm"/>
+                                <dateField id="holderInfo_custDobField" property="customerCrdDet.custDob" width="100%"/>
+                                <textField id="holderInfo_custPostCdField" property="customerCrdDet.custPostCd"/>
+                                <textField id="holderInfo_custCityField" property="customerCrdDet.custCity"/>
+                                <textField id="holderInfo_custStateField" property="customerCrdDet.custState"/>
+                                <textField id="holderInfo_custCntryField" property="customerCrdDet.custCntry"/>
+                            </column>
+                        </form>
+                    </groupBox>
+                    <hbox id="holderInfo_editActions" spacing="true">
+                        <button action="windowCommitAndClose"/>
+                    </hbox>
+                </scrollBox>
+            </tab>
+            <tab id="linked_accts_tab" caption="msg://linkedaccts">
+                <scrollBox id="linked_accts_scrollBox" spacing="true">
+                    <split/>
+                    <groupBox caption="msg://linked_accts_Genral" orientation="horizontal">
+                        <table id="detsTable" dataContainer="customerCrdAcctDetDC" width="100%" height="100%">
+                            <actions>
+                                <action id="create" type="create"/>
+                                <action id="edit" type="edit"/>
+                                <action id="remove" type="remove"/>
+                            </actions>
+                            <columns>
+                                <column id="acctNo"/>
+                                <column id="acctType"/>
+                                <column id="acctCcy"/>
+                                <column id="acctSts"/>
+                                <column id="optPriAcct"/>
+                                <column id="optFcsh"/>
+                                <column id="optCsh"/>
+                                <column id="optDep"/>
+                                <column id="optInq"/>
+                                <column id="optReq"/>
+                                <column id="optTrf"/>
+                                <column id="optTrfDr"/>
+                                <column id="optTrfCr"/>
+                                <column id="optTrf3"/>
+                                <column id="optTrf3Dr"/>
+                                <column id="optTrf3Cr"/>
+                                <column id="optIbft"/>
+                                <column id="optIbftDr"/>
+                                <column id="optIbftCr"/>
+                            </columns>
+                            <buttonsPanel>
+                                <button action="detsTable.create"/>
+                                <button action="detsTable.edit"/>
+                                <button action="detsTable.remove"/>
+                            </buttonsPanel>
+                        </table>
+                    </groupBox>
+                    <hbox id="linked_accts_editActions" spacing="true">
+                        <button action="windowCommitAndClose"/>
+                    </hbox>
+                </scrollBox>
+            </tab>
+            <tab id="card_trans_tab" caption="msg://cardTrans">
+                <scrollBox id="card_trans_scrollBox" spacing="true">
+                    <split/>
+                    <groupBox caption="msg://linked_accts_Genral" orientation="horizontal">
+                        <label value="Comming Soon..."/>
+                    </groupBox>
+                    <hbox id="card_trans_editActions" spacing="true">
+                        <button action="windowCommitAndClose"/>
+                    </hbox>
+                </scrollBox>
+            </tab>
+        </tabSheet>
+
     </layout>
 </window>

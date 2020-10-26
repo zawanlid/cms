@@ -1,9 +1,17 @@
 package com.company.cms.entity;
 
+import com.company.cms.entity.model.CardStatus;
+import com.company.cms.entity.model.ClsType;
+import com.company.cms.entity.model.LangCd;
+import com.haulmont.chile.core.annotations.Composition;
+import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "CMSCUSTCRDMAST")
 @Entity(name = "cms_CustomerCrdMast")
@@ -19,10 +27,10 @@ public class CustomerCrdMast extends StandardEntity {
     @Column(name = "CRDNUM", length = 16)
     private String crdNum;
 
-    @Column(name = "CRDSTS", length = 2)
+    @Column(name = "CRDSTS")
     private String crdSts;
 
-    @Column(name = "CRD_CLSTYPE", length = 5)
+    @Column(name = "CRD_CLSTYPE")
     private String clsType;
 
     @Column(name = "CRD_ISSUED")
@@ -118,7 +126,7 @@ public class CustomerCrdMast extends StandardEntity {
     @Column(name = "CRD_ATC", length = 4)
     private String atc;
 
-    @Column(name = "CRD_LANGCD", length = 1)
+    @Column(name = "CRD_LANGCD")
     private String langCd;
 
     @Column(name = "CRD_CHRGS_WAIVED", length = 1)
@@ -159,6 +167,114 @@ public class CustomerCrdMast extends StandardEntity {
     @Temporal(TemporalType.DATE)
     @Column(name = "CRD_LASTCYC_DT")
     private Date lastCycDt;
+
+    @Column(name = "CRD_HOMEBRN", length = 4)
+    private String homeBrn;
+
+    @Column(name = "CRD_TRN3_LMT")
+    private Integer trn3Lmt;
+
+    @Column(name = "CRD_TRN3_AVL")
+    private Integer trn3Avl;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "CRD_ISSUED_DT")
+    private Date issuedDt;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @JoinColumn(name = "CUSTOMER_CRD_DET_ID")
+    @OneToOne(fetch = FetchType.LAZY)
+    private CustomerCrdDet customerCrdDet;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "customerCrdMast")
+    private List<CustomerCrdAcctDet> customerCrdAcctDet;
+
+    @Transient
+    @MetaProperty(related = {"expMth", "expYr"})
+    private String expDt;
+
+    public Date getIssuedDt() {
+        return issuedDt;
+    }
+
+    public void setIssuedDt(Date issuedDt) {
+        this.issuedDt = issuedDt;
+    }
+
+    public void setCustomerCrdDet(CustomerCrdDet customerCrdDet) {
+        this.customerCrdDet = customerCrdDet;
+    }
+
+    public CustomerCrdDet getCustomerCrdDet() {
+        return customerCrdDet;
+    }
+
+    public Integer getTrn3Avl() {
+        return trn3Avl;
+    }
+
+    public void setTrn3Avl(Integer trn3Avl) {
+        this.trn3Avl = trn3Avl;
+    }
+
+    public Integer getTrn3Lmt() {
+        return trn3Lmt;
+    }
+
+    public void setTrn3Lmt(Integer trn3Lmt) {
+        this.trn3Lmt = trn3Lmt;
+    }
+
+    public String getHomeBrn() {
+        return homeBrn;
+    }
+
+    public void setHomeBrn(String homeBrn) {
+        this.homeBrn = homeBrn;
+    }
+
+    public void setCrdSts(CardStatus crdSts) {
+        this.crdSts = crdSts == null ? null : crdSts.getId();
+    }
+
+    public CardStatus getCrdSts() {
+        return crdSts == null ? null : CardStatus.fromId(crdSts);
+    }
+
+    public void setClsType(ClsType clsType) {
+        this.clsType = clsType == null ? null : clsType.getId();
+    }
+
+    public ClsType getClsType() {
+        return clsType == null ? null : ClsType.fromId(clsType);
+    }
+
+    public void setLangCd(LangCd langCd) {
+        this.langCd = langCd == null ? null : langCd.getId();
+    }
+
+    public LangCd getLangCd() {
+        return langCd == null ? null : LangCd.fromId(langCd);
+    }
+
+    public String getExpDt() {
+        return (expYr != null && expYr.length() == 4) ? expMth+"/"+expYr.substring(2) : null;
+    }
+
+    public void setExpDt(String expDt) {
+        this.expDt = expDt;
+    }
+
+    public List<CustomerCrdAcctDet> getCustomerCrdAcctDet() {
+        return customerCrdAcctDet;
+    }
+
+    public void setCustomerCrdAcctDet(List<CustomerCrdAcctDet> customerCrdAcctDet) {
+        this.customerCrdAcctDet = customerCrdAcctDet;
+    }
 
     public Date getLastCycDt() {
         return lastCycDt;
@@ -230,22 +346,6 @@ public class CustomerCrdMast extends StandardEntity {
 
     public void setPinissuedDt(Date pinissuedDt) {
         this.pinissuedDt = pinissuedDt;
-    }
-
-    public String getChrgsWaived() {
-        return chrgsWaived;
-    }
-
-    public void setChrgsWaived(String chrgsWaived) {
-        this.chrgsWaived = chrgsWaived;
-    }
-
-    public String getLangCd() {
-        return langCd;
-    }
-
-    public void setLangCd(String langCd) {
-        this.langCd = langCd;
     }
 
     public String getAtc() {
@@ -494,22 +594,6 @@ public class CustomerCrdMast extends StandardEntity {
 
     public void setIssued(Integer issued) {
         this.issued = issued;
-    }
-
-    public String getClsType() {
-        return clsType;
-    }
-
-    public void setClsType(String clsType) {
-        this.clsType = clsType;
-    }
-
-    public String getCrdSts() {
-        return crdSts;
-    }
-
-    public void setCrdSts(String crdSts) {
-        this.crdSts = crdSts;
     }
 
     public String getCrdNum() {

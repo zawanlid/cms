@@ -59,6 +59,29 @@ public class CustomerCrdDet extends StandardEntity {
     @Column(name = "CRD_CUSTPHNO", length = 30)
     private String custPhNo;
 
+    @Column(name = "CRD_CUSTNOTES", length = 30)
+    private String custNotes;
+
+    @JoinColumn(name = "CUSTOMER_CRD_ID")
+    @OneToOne(fetch = FetchType.LAZY)
+    private CustomerCrdMast customerCrdMast;
+
+    public String getCustNotes() {
+        return custNotes;
+    }
+
+    public void setCustNotes(String custNotes) {
+        this.custNotes = custNotes;
+    }
+
+    public void setCustomerCrdMast(CustomerCrdMast customerCrdMast) {
+        this.customerCrdMast = customerCrdMast;
+    }
+
+    public CustomerCrdMast getCustomerCrdMast() {
+        return customerCrdMast;
+    }
+
     public String getCustPhNo() {
         return custPhNo;
     }

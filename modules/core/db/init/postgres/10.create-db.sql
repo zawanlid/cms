@@ -372,7 +372,7 @@ create table CMSCRDMAST (
     INSTNO integer,
     BIN varchar(10),
     CRDNUM varchar(16),
-    CRDSTS varchar(2),
+    CRDSTS varchar(50),
     CRD_CLSTYPE varchar(5),
     CRD_ISSUEDT date,
     CRD_ISSUED integer,
@@ -420,6 +420,7 @@ create table CMSCRDMAST (
     CRD_LASTMAINT_DT date,
     CRD_LASTSTSCHG_DT date,
     CRD_LASTCYC_DT date,
+    CRD_DET_ID uuid,
     --
     primary key (ID)
 )^
@@ -449,7 +450,7 @@ create table CMSCRDDET (
     CRD_CUSTCNTRY varchar(30),
     CRD_CUSTDOB date,
     CRD_CUSTPHNO varchar(30),
-    CARD_MAST_ID uuid,
+    CARD_MAST_ID uuid not null,
     --
     primary key (ID)
 )^
@@ -595,6 +596,8 @@ create table CMSCUSTCRDACCTDET (
     CRD_OPT_IBFT varchar(1),
     CRD_OPT_IBFTDR varchar(1),
     CRD_OPT_IBFTCR varchar(1),
+    CRD_OPT_PYMT varchar(1),
+    CUSTOMER_CRD_MAST_ID uuid,
     --
     primary key (ID)
 )^
@@ -613,8 +616,8 @@ create table CMSCUSTCRDMAST (
     INSTNO integer,
     BIN varchar(10),
     CRDNUM varchar(16),
-    CRDSTS varchar(2),
-    CRD_CLSTYPE varchar(5),
+    CRDSTS varchar(50),
+    CRD_CLSTYPE varchar(50),
     CRD_ISSUED integer,
     CRD_RETURN integer,
     CRD_CYCPRD integer,
@@ -646,7 +649,7 @@ create table CMSCUSTCRDMAST (
     CRD_USE_LMT integer,
     CRD_CARDSEQ integer,
     CRD_ATC varchar(4),
-    CRD_LANGCD varchar(1),
+    CRD_LANGCD varchar(50),
     CRD_CHRGS_WAIVED varchar(1),
     CRD_PINISSUED_DT date,
     CRD_LINK_DT date,
@@ -657,6 +660,10 @@ create table CMSCUSTCRDMAST (
     CRD_LASTMAINT_DT date,
     CRD_LASTSTSCHG_DT date,
     CRD_LASTCYC_DT date,
+    CRD_HOMEBRN varchar(4),
+    CRD_TRN3_LMT integer,
+    CRD_TRN3_AVL integer,
+    CUSTOMER_CRD_DET_ID uuid,
     --
     primary key (ID)
 )^
@@ -706,6 +713,8 @@ create table CMSCUSTCRDDET (
     CRD_CUSTCNTRY varchar(30),
     CRD_CUSTDOB date,
     CRD_CUSTPHNO varchar(30),
+    CRD_CUSTNOTES varchar(30),
+    CUSTOMER_CRD_ID uuid,
     --
     primary key (ID)
 )^
