@@ -31,19 +31,19 @@ public class CmsRules extends StandardEntity {
         this.sts = sts;
     }
 
-    public String getrDescr() {
+    public String getRDescr() {
         return rDescr;
     }
 
-    public void setrDescr(String rDescr) {
+    public void setRDescr(String rDescr) {
         this.rDescr = rDescr;
     }
 
-    public String getrName() {
+    public String getRName() {
         return rName;
     }
 
-    public void setrName(String rName) {
+    public void setRName(String rName) {
         this.rName = rName;
     }
 

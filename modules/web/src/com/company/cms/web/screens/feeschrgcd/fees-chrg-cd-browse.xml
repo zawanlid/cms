@@ -33,33 +33,10 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
-                <column id="instNo"/>
                 <column id="chrgCd"/>
-                <column id="chrgCdDescr"/>
                 <column id="chrgCdCurr"/>
                 <column id="chrgCdTenorby"/>
-                <column id="rate1"/>
-                <column id="rate2"/>
-                <column id="rate3"/>
-                <column id="rate4"/>
-                <column id="rate5"/>
-                <column id="rate6"/>
-                <column id="minAmt"/>
-                <column id="maxAmt"/>
-                <column id="tamt1"/>
-                <column id="tamt2"/>
-                <column id="tamt3"/>
-                <column id="tamt4"/>
-                <column id="tamt5"/>
-                <column id="tamt6"/>
-                <column id="famt1"/>
-                <column id="famt2"/>
-                <column id="famt3"/>
-                <column id="famt4"/>
-                <column id="famt5"/>
-                <column id="famt6"/>
-                <column id="glCd"/>
-                <column id="lstUpd"/>
+                <column id="chrgCdDescr"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

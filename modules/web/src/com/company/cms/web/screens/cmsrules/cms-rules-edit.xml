@@ -15,7 +15,6 @@
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="cmsRulesDc">
             <column width="350px">
-                <textField id="instNoField" property="instNo"/>
                 <textField id="rNameField" property="rName"/>
                 <textField id="rDescrField" property="rDescr"/>
                 <textField id="stsField" property="sts"/>

@@ -33,7 +33,6 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
-                <column id="instNo"/>
                 <column id="trnsChl"/>
                 <column id="extTrnCd"/>
                 <column id="chrgsCd"/>

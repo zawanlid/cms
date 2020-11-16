@@ -1,5 +1,6 @@
 package com.company.cms.entity;
 
+import com.company.cms.entity.model.ChrgCdTenorBy;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.*;
@@ -22,7 +23,7 @@ public class FeesChrgCd extends StandardEntity {
     @Column(name = "CHRGCD_CURR", length = 3)
     private String chrgCdCurr;
 
-    @Column(name = "CHRGCD_TENORBY", length = 1)
+    @Column(name = "CHRGCD_TENORBY")
     private String chrgCdTenorby;
 
     @Column(name = "RATE1")
@@ -91,6 +92,14 @@ public class FeesChrgCd extends StandardEntity {
     @Temporal(TemporalType.DATE)
     @Column(name = "LSTUPD")
     private Date lstUpd;
+
+    public void setChrgCdTenorby(ChrgCdTenorBy chrgCdTenorby) {
+        this.chrgCdTenorby = chrgCdTenorby == null ? null : chrgCdTenorby.getId();
+    }
+
+    public ChrgCdTenorBy getChrgCdTenorby() {
+        return chrgCdTenorby == null ? null : ChrgCdTenorBy.fromId(chrgCdTenorby);
+    }
 
     public Date getLstUpd() {
         return lstUpd;
@@ -268,14 +277,6 @@ public class FeesChrgCd extends StandardEntity {
         this.rate1 = rate1;
     }
 
-    public String getChrgCdTenorby() {
-        return chrgCdTenorby;
-    }
-
-    public void setChrgCdTenorby(String chrgCdTenorby) {
-        this.chrgCdTenorby = chrgCdTenorby;
-    }
-
     public String getChrgCdCurr() {
         return chrgCdCurr;
     }
@@ -306,5 +307,97 @@ public class FeesChrgCd extends StandardEntity {
 
     public void setInstNo(Integer instNo) {
         this.instNo = instNo;
+    }
+
+    /**
+     * This event listener is to clear not related fields.
+     */
+    @PrePersist
+    public void prePersist() {
+        this.clearNotRelatedFields();
+    }
+
+    /**
+     * This event listener is to clear not related fields.
+     */
+    @PreUpdate
+    public void preUpdate() {
+        this.clearNotRelatedFields();
+    }
+
+    /**
+     * Logic to clear not related fields.
+     */
+    private void clearNotRelatedFields() {
+
+        switch (ChrgCdTenorBy.fromId(this.chrgCdTenorby)){
+            case FIXED: {
+                this.maxAmt = null;
+
+                this.famt1  = null;
+                this.famt2 = null;
+                this.famt3 = null;
+                this.famt4 = null;
+                this.famt5 = null;
+
+                this.rate1 = null;
+                this.rate2 = null;
+                this.rate3 = null;
+                this.rate4 = null;
+                this.rate5 = null;
+
+                this.tamt1 = null;
+                this.tamt2= null;
+                this.tamt3= null;
+                this.tamt4 = null;
+                this.tamt5 = null;
+
+                break;
+            }
+            case PERCENTAGE: {
+                this.famt1 = null;
+                this.famt2 = null;
+                this.famt3 = null;
+                this.famt4 = null;
+                this.famt5 = null;
+
+                break;
+            }
+            case X: {
+                this.rate1 = null;
+                this.rate2 = null;
+                this.rate3 = null;
+                this.rate4 = null;
+                this.rate5 = null;
+
+                break;
+            }
+            default: {
+                this.minAmt = null;
+                this.maxAmt = null;
+
+                this.glCd   = null;
+
+                this.tamt1  = null;
+                this.tamt2 = null;
+                this.tamt3 = null;
+                this.tamt4 = null;
+                this.tamt5 = null;
+
+                this.rate1 = null;
+                this.rate2 = null;
+                this.rate3 = null;
+                this.rate4 = null;
+                this.rate5 = null;
+
+                this.tamt1 = null;
+                this.tamt2= null;
+                this.tamt3= null;
+                this.tamt4 = null;
+                this.tamt5 = null;
+
+                break;
+            }
+        }
     }
 }

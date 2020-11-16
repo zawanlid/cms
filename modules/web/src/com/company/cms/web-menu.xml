@@ -19,6 +19,15 @@
         <item screen="cms_CardTagging.browse" caption="mainMsg://menu_config.cms_CardTagging.browse"/>
     </menu>
         <item screen="cms_CustomerCrdMast.browse" caption="mainMsg://menu_config.cms_CustomerCrdMast.browse"/>
+    <menu id="card_transaction" caption="mainMsg://menu_card.transaction">
+        <item screen="cms_CmsTrans.browse" caption="mainMsg://menu_config.cms_CmsTrans.browse"/>
+        <item screen="cms_CmsRules.browse" caption="mainMsg://menu_config.cms_CmsRules.browse"/>
+    </menu>
+    <menu id="cms_FeeManagement" caption="mainMsg://menu_config.cms_Fee Management">
+        <item screen="cms_FeesCat.browse" caption="mainMsg://menu_config.cms_FeesCat.browse"/>
+        <item screen="cms_FeesChrgCd.browse" caption="mainMsg://menu_config.cms_FeesChrgCd.browse"/>
+        <item screen="cms_Fees.browse" caption="mainMsg://menu_config.cms_Feesmaintenance"/>
+    </menu>
         <!--        <item screen="cms_CustomerCrdMast.browse" caption="mainMsg://menu_config.cms_CustomerCrdMast.browse"/>-->
         <!--
                 <item screen="cms_CardMast.browse" caption="mainMsg://menu_config.cms_CardMast.browse"/>
@@ -29,12 +38,9 @@
 
                 <item screen="cms_CustomerCrdDet.browse" caption="mainMsg://menu_config.cms_CustomerCrdDet.browse"/>
                 <item screen="cms_CustomerCrdAcctDet.browse" caption="mainMsg://menu_config.cms_CustomerCrdAcctDet.browse"/>
-                <item screen="cms_CmsTrans.browse" caption="mainMsg://menu_config.cms_CmsTrans.browse"/>
-                <item screen="cms_CmsRules.browse" caption="mainMsg://menu_config.cms_CmsRules.browse"/>
+
                 <item screen="cms_CmsTPRule.browse" caption="mainMsg://menu_config.cms_CmsTPRule.browse"/>
-                <item screen="cms_Fees.browse" caption="mainMsg://menu_config.cms_Fees.browse"/>
-                <item screen="cms_FeesCat.browse" caption="mainMsg://menu_config.cms_FeesCat.browse"/>
-                <item screen="cms_FeesChrgCd.browse" caption="mainMsg://menu_config.cms_FeesChrgCd.browse"/>-->
+                -->
 
     </menu>
 </menu-config>
