@@ -1,10 +1,17 @@
 package com.company.cms.entity;
 
+import com.company.cms.entity.model.ChrgCd;
+import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.math.BigDecimal;
+import java.util.List;
 
 @Table(name = "CMSFEES")
 @Entity(name = "cms_Fees")
@@ -20,7 +27,7 @@ public class Fees extends StandardEntity {
     @Column(name = "EXTTRNCD", length = 9)
     private String extTrnCd;
 
-    @Column(name = "CHRGSCD", length = 10)
+    @Column(name = "CHRGSCD")
     private String chrgsCd;
 
     @Column(name = "CURR", length = 3)
@@ -52,6 +59,42 @@ public class Fees extends StandardEntity {
 
     @Column(name = "TTLCHG")
     private Integer ttlChg;
+
+    @Column(name = "TRNDESCR", length = 100)
+    private String trnDescr;
+
+    @Column(name = "TTL_FEE")
+    private BigDecimal ttlFee;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "feesList")
+    private List<FeesCat> feesCatList;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "feesList")
+    private List<FeesChrgCd> feesChrgCdList;
+
+    public void setChrgsCd(ChrgCd chrgsCd) {
+        this.chrgsCd = chrgsCd == null ? null : chrgsCd.getId();
+    }
+
+    public ChrgCd getChrgsCd() {
+        return chrgsCd == null ? null : ChrgCd.fromId(chrgsCd);
+    }
+
+    public void setTtlFee(BigDecimal ttlFee) {
+        this.ttlFee = ttlFee;
+    }
+
+    public String getTrnDescr() {
+        return trnDescr;
+    }
+
+    public void setTrnDescr(String trnDescr) {
+        this.trnDescr = trnDescr;
+    }
 
     public Integer getTtlChg() {
         return ttlChg;
@@ -133,14 +176,6 @@ public class Fees extends StandardEntity {
         this.curr = curr;
     }
 
-    public String getChrgsCd() {
-        return chrgsCd;
-    }
-
-    public void setChrgsCd(String chrgsCd) {
-        this.chrgsCd = chrgsCd;
-    }
-
     public String getExtTrnCd() {
         return extTrnCd;
     }
@@ -163,5 +198,17 @@ public class Fees extends StandardEntity {
 
     public void setInstNo(Integer instNo) {
         this.instNo = instNo;
+    }
+
+    public BigDecimal getTtlFee() {
+        return ttlFee != null ? ttlFee : BigDecimal.valueOf(0);
+    }
+
+    public List<FeesCat> getFeesCatList() {
+        return feesCatList;
+    }
+
+    public void setFeesCatList(List<FeesCat> feesCatList) {
+        this.feesCatList = feesCatList;
     }
 }

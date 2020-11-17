@@ -35,17 +35,8 @@
             <columns>
                 <column id="trnsChl"/>
                 <column id="extTrnCd"/>
-                <column id="chrgsCd"/>
-                <column id="curr"/>
-                <column id="authNm"/>
-                <column id="catLst"/>
-                <column id="chrgCdLst"/>
+                <column id="trnDescr"/>
                 <column id="priority"/>
-                <column id="netFee"/>
-                <column id="termFee"/>
-                <column id="issFee"/>
-                <column id="bnbFee"/>
-                <column id="ttlChg"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

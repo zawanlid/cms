@@ -1,10 +1,14 @@
 package com.company.cms.entity;
 
 import com.company.cms.entity.model.ChrgCdTenorBy;
+import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "CMSFEES_CHRGCD")
 @Entity(name = "cms_FeesChrgCd")
@@ -92,6 +96,11 @@ public class FeesChrgCd extends StandardEntity {
     @Temporal(TemporalType.DATE)
     @Column(name = "LSTUPD")
     private Date lstUpd;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "feesChrgCdList")
+    private List<Fees> feesList;
 
     public void setChrgCdTenorby(ChrgCdTenorBy chrgCdTenorby) {
         this.chrgCdTenorby = chrgCdTenorby == null ? null : chrgCdTenorby.getId();
@@ -399,5 +408,13 @@ public class FeesChrgCd extends StandardEntity {
                 break;
             }
         }
+    }
+
+    public List<Fees> getFeesList() {
+        return feesList;
+    }
+
+    public void setFeesList(List<Fees> feesList) {
+        this.feesList = feesList;
     }
 }

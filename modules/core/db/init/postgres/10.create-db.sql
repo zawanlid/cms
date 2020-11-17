@@ -752,7 +752,7 @@ create table CMSFEES (
     INSTNO integer,
     TRNSCHL varchar(4),
     EXTTRNCD varchar(9),
-    CHRGSCD varchar(10),
+    CHRGSCD varchar(50),
     CURR varchar(3),
     AUTHNM varchar(4),
     CATLST varchar(500),
@@ -763,6 +763,8 @@ create table CMSFEES (
     ISSFEE integer,
     BNBFEE integer,
     TTLCHG integer,
+    TRNDESCR varchar(100),
+    TTL_FEE decimal(19, 2),
     --
     primary key (ID)
 )^

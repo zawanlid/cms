@@ -6,7 +6,9 @@
     <data>
         <instance id="feesDc"
                   class="com.company.cms.entity.Fees">
-            <view extends="_local"/>
+            <view extends="_local">
+                <property name="ttlFee"/>
+            </view>
             <loader/>
         </instance>
     </data>
@@ -14,24 +16,33 @@
                 width="800"/>
     <layout expand="scrollBox" spacing="true">
         <scrollBox id="scrollBox" spacing="true">
+            <groupBox id="chrgCd" caption="mainMsg://feechrgcd">
             <form id="form" dataContainer="feesDc">
                 <column width="350px">
-                    <textField id="instNoField" property="instNo"/>
                     <textField id="trnsChlField" property="trnsChl"/>
                     <textField id="extTrnCdField" property="extTrnCd"/>
-                    <textField id="chrgsCdField" property="chrgsCd"/>
-                    <textField id="currField" property="curr"/>
+                    <textField id="priorityField" property="priority" colspan="2"/>
+                    <lookupField id="chrgsCdField" property="chrgsCd" required="true"/>
+                </column>
+                <column width="350px">
                     <textField id="authNmField" property="authNm"/>
-                    <textField id="catLstField" property="catLst"/>
-                    <textField id="chrgCdLstField" property="chrgCdLst"/>
-                    <textField id="priorityField" property="priority"/>
-                    <textField id="netFeeField" property="netFee"/>
-                    <textField id="termFeeField" property="termFee"/>
-                    <textField id="issFeeField" property="issFee"/>
-                    <textField id="bnbFeeField" property="bnbFee"/>
-                    <textField id="ttlChgField" property="ttlChg"/>
+                    <textField id="currField" property="curr"/>
+                    <textField id="ttlFeeField" property="ttlFee" editable="false"/>
                 </column>
             </form>
+            </groupBox>
+            <groupBox id="fee_detail_1" caption="mainMsg://details" visible="false">
+                <form id="form_detail_1" dataContainer="feesDc">
+                    <column width="350px">
+                        <textField id="netFeeField" property="netFee"/>
+                        <textField id="issFeeField" property="issFee"/>
+                    </column>
+                    <column width="350px">
+                        <textField id="termFeeField" property="termFee"/>
+                        <textField id="bnbFeeField" property="bnbFee"/>
+                    </column>
+                </form>
+            </groupBox>
         </scrollBox>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>

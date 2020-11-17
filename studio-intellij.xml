@@ -2,18 +2,6 @@
 <project version="4">
   <component name="CubaPluginProjectSettings">
     <option name="notifyLongModelDbComp" value="false" />
-    <option name="excludedScripts">
-      <map>
-        <entry key="postgres">
-          <value>
-            <map>
-              <entry key="201026-2-updateCmscustcrdmast.sql" value="alter table CMSCUSTCRDMAST rename column crd_issued_dt to crd_issued_dt__u20578 ;&#10;" />
-              <entry key="201026-2-updateCmscustcrdmast_DropScript.sql" value="alter table CMSCUSTCRDMAST drop column CRD_ISSUED_DT__U20578 cascade ;&#10;" />
-            </map>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="stateVersion" value="1" />
   </component>
 </project>
